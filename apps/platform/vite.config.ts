@@ -6,11 +6,11 @@ export default defineConfig(() => ({
   root: __dirname,
   cacheDir: '../../node_modules/.vite/apps/platform',
   server: {
-    port: 42004200,
+    port: 4200,
     host: 'localhost',
   },
   preview: {
-    port: 42004200,
+    port: 4200,
     host: 'localhost',
   },
   plugins: [react()],
