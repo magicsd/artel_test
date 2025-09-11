@@ -21,7 +21,7 @@ import { Link, Outlet, useLocation } from 'react-router-dom'
 
 export function Layout() {
   const { theme, setTheme } = useTheme()
-  const { t, i18n } = useTranslation(['common', 'auth'])
+  const { t, i18n } = useTranslation('common')
   const location = useLocation()
 
   const toggleLanguage = () => {
@@ -111,13 +111,13 @@ export function Layout() {
                 <Button variant="ghost" size="sm" asChild>
                   <Link to="/login">
                     <LogIn className="mr-2 h-4 w-4" />
-                    {t('auth:login.title')}
+                    {t('navigation.login')}
                   </Link>
                 </Button>
                 <Button size="sm" asChild>
                   <Link to="/register">
                     <UserPlus className="mr-2 h-4 w-4" />
-                    {t('auth:register.title')}
+                    {t('navigation.register')}
                   </Link>
                 </Button>
               </div>
@@ -177,14 +177,14 @@ export function Layout() {
                           className="hover:bg-accent flex items-center rounded-md px-3 py-2 text-sm font-medium"
                         >
                           <LogIn className="mr-2 h-4 w-4" />
-                          {t('auth:login.title')}
+                          {t('navigation.login')}
                         </Link>
                         <Link
                           to="/register"
                           className="hover:bg-accent flex items-center rounded-md px-3 py-2 text-sm font-medium"
                         >
                           <UserPlus className="mr-2 h-4 w-4" />
-                          {t('auth:register.title')}
+                          {t('navigation.register')}
                         </Link>
                       </div>
                     )}

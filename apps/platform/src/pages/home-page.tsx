@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 export const HomePage = () => {
-  const { t } = useTranslation(['common'])
+  const { t } = useTranslation('common')
 
   return (
     <div className="flex flex-col">
@@ -13,20 +13,20 @@ export const HomePage = () => {
         <div className="container py-24 lg:py-32">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-              {t('common:hero.title')}
+              {t('hero.title')}
             </h1>
             <p className="text-muted-foreground mt-6 text-lg leading-8">
-              {t('common:hero.subtitle')}
+              {t('hero.subtitle')}
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Button size="lg" asChild>
                 <Link to="/register">
-                  {t('common:getStarted')}
+                  {t('getStarted')}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <Link to="/about">{t('common:learnMore')}</Link>
+                <Link to="/about">{t('learnMore')}</Link>
               </Button>
             </div>
           </div>
@@ -38,10 +38,10 @@ export const HomePage = () => {
         <div className="container">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              {t('common:features.title')}
+              {t('features.title')}
             </h2>
             <p className="text-muted-foreground mt-6 text-lg leading-8">
-              {t('common:features.subtitle')}
+              {t('features.subtitle')}
             </p>
           </div>
           <div className="mx-auto mt-16 max-w-5xl">
@@ -49,40 +49,40 @@ export const HomePage = () => {
               <Card>
                 <CardHeader>
                   <Users className="text-primary h-8 w-8" />
-                  <CardTitle className="text-lg">{t('common:features.collaboration')}</CardTitle>
+                  <CardTitle className="text-lg">{t('features.collaboration')}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription>{t('common:features.collaborationDesc')}</CardDescription>
+                  <CardDescription>{t('features.collaborationDesc')}</CardDescription>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
                   <Zap className="text-primary h-8 w-8" />
-                  <CardTitle className="text-lg">{t('common:features.performance')}</CardTitle>
+                  <CardTitle className="text-lg">{t('features.performance')}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription>{t('common:features.performanceDesc')}</CardDescription>
+                  <CardDescription>{t('features.performanceDesc')}</CardDescription>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
                   <Shield className="text-primary h-8 w-8" />
-                  <CardTitle className="text-lg">{t('common:features.security')}</CardTitle>
+                  <CardTitle className="text-lg">{t('features.security')}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription>{t('common:features.securityDesc')}</CardDescription>
+                  <CardDescription>{t('features.securityDesc')}</CardDescription>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
                   <Globe className="text-primary h-8 w-8" />
-                  <CardTitle className="text-lg">{t('common:features.global')}</CardTitle>
+                  <CardTitle className="text-lg">{t('features.global')}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription>{t('common:features.globalDesc')}</CardDescription>
+                  <CardDescription>{t('features.globalDesc')}</CardDescription>
                 </CardContent>
               </Card>
             </div>
@@ -95,14 +95,14 @@ export const HomePage = () => {
         <div className="container py-24">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-primary-foreground text-3xl font-bold tracking-tight sm:text-4xl">
-              {t('common:cta.title')}
+              {t('cta.title')}
             </h2>
             <p className="text-primary-foreground/80 mt-6 text-lg leading-8">
-              {t('common:cta.subtitle')}
+              {t('cta.subtitle')}
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Button size="lg" variant="secondary" asChild>
-                <Link to="/register">{t('common:signUpNow')}</Link>
+                <Link to="/register">{t('signUpNow')}</Link>
               </Button>
               <Button
                 size="lg"
@@ -110,7 +110,7 @@ export const HomePage = () => {
                 className="text-primary-foreground border-primary-foreground hover:bg-primary-foreground hover:text-primary"
                 asChild
               >
-                <Link to="/login">{t('common:signIn')}</Link>
+                <Link to="/login">{t('signIn')}</Link>
               </Button>
             </div>
           </div>
