@@ -27,7 +27,7 @@ export default defineConfig(() => ({
     },
   },
   test: {
-    name: '@frontend/telegram',
+    name: '@artelonline/telegram',
     watch: false,
     globals: true,
     environment: 'jsdom',

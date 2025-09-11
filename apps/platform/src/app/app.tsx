@@ -1,4 +1,4 @@
-import { i18n } from '@frontend/shared'
+import { i18n } from '@artelonline/shared'
 import { Routes, Route } from 'react-router-dom'
 import { HomePage, AboutPage, DashboardPage } from '../pages'
 

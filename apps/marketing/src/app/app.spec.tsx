@@ -18,6 +18,6 @@ describe('App', () => {
         <App />
       </BrowserRouter>,
     )
-    expect(getAllByText(new RegExp('Welcome @frontend/marketing', 'gi')).length > 0).toBeTruthy()
+    expect(getAllByText(new RegExp('Welcome @artelonline/marketing', 'gi')).length > 0).toBeTruthy()
   })
 })

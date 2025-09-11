@@ -17,9 +17,9 @@ export default defineConfig(() => ({
   plugins: [react()],
   resolve: {
     alias: {
-      '@frontend/ui': path.resolve(__dirname, '../../packages/ui/src'),
-      '@frontend/shared': path.resolve(__dirname, '../../packages/shared/src'),
-      '@frontend/config': path.resolve(__dirname, '../../packages/config/src'),
+      '@artelonline/ui': path.resolve(__dirname, '../../packages/ui/src'),
+      '@artelonline/shared': path.resolve(__dirname, '../../packages/shared/src'),
+      '@artelonline/config': path.resolve(__dirname, '../../packages/config/src'),
     },
   },
   // Uncomment this if you are using workers.
@@ -35,7 +35,7 @@ export default defineConfig(() => ({
     },
   },
   test: {
-    name: '@frontend/platform',
+    name: '@artelonline/platform',
     watch: false,
     globals: true,
     environment: 'jsdom',

@@ -24,7 +24,7 @@ const config: StorybookConfig = {
     config.resolve = config.resolve || {}
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@frontend/shared': '../../shared/src/index.ts',
+      '@artelonline/shared': '../../shared/src/index.ts',
     }
     return config
   },

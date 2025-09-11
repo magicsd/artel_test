@@ -16,12 +16,12 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2022",
-    "customConditions": ["@frontend/source"],
+    "customConditions": ["@artelonline/source"],
     "baseUrl": ".",
     "paths": {
-      "@frontend/ui": ["packages/ui/src/index.ts"],
-      "@frontend/shared": ["packages/shared/src/index.ts"],
-      "@frontend/config": ["packages/config/src/index.ts"]
+      "@artelonline/ui": ["packages/ui/src/index.ts"],
+      "@artelonline/shared": ["packages/shared/src/index.ts"],
+      "@artelonline/config": ["packages/config/src/index.ts"]
     }
   }
 }

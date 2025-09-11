@@ -1,4 +1,4 @@
-import { useTheme } from '@frontend/shared'
+import { useTheme } from '@artelonline/shared'
 import { Moon, Sun, Monitor } from 'lucide-react'
 import { Button } from './button'
 import {

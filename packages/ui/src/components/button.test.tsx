@@ -1,4 +1,4 @@
-import { render, screen } from '@frontend/config'
+import { render, screen } from '@artelonline/config'
 import { describe, it, expect } from 'vitest'
 import { Button } from './button'
 

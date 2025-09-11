@@ -7,7 +7,7 @@ import {
   CardTitle,
   Input,
   Label,
-} from '@frontend/ui'
+} from '@artelonline/ui'
 import { Eye, EyeOff, Send } from 'lucide-react'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'

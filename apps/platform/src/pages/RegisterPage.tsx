@@ -1,4 +1,4 @@
-import { Button, Card, CardContent, CardHeader, CardTitle, Input, Label } from '@frontend/ui'
+import { Button, Card, CardContent, CardHeader, CardTitle, Input, Label } from '@artelonline/ui'
 import { ArrowLeft, Check } from 'lucide-react'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'

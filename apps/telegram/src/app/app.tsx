@@ -6,7 +6,7 @@ import NxWelcome from './nx-welcome'
 export function App() {
   return (
     <div>
-      <NxWelcome title="@frontend/telegram" />
+      <NxWelcome title="@artelonline/telegram" />
 
       {/* START: routes */}
       {/* These routes and navigation have been generated for you */}

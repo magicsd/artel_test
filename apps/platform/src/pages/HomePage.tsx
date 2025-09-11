@@ -1,5 +1,5 @@
-import { useTranslation } from '@frontend/shared'
-import { Button } from '@frontend/ui'
+import { useTranslation } from '@artelonline/shared'
+import { Button } from '@artelonline/ui'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
