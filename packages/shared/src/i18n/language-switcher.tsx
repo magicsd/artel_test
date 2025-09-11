@@ -4,7 +4,7 @@ interface LanguageSwitcherProps {
   className?: string
 }
 
-export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ className }) => {
+export function LanguageSwitcher({ className }: LanguageSwitcherProps) {
   const { currentLanguage, changeLanguage, languages } = useLanguage()
 
   return (

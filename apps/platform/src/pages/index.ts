@@ -1,3 +1,5 @@
-export { HomePage } from './HomePage'
-export { AboutPage } from './AboutPage'
-export { DashboardPage } from './DashboardPage'
+export { HomePage } from './home-page'
+export { AboutPage } from './about-page'
+export { DashboardPage } from './dashboard-page'
+export { LoginPage } from './login-page'
+export { RegisterPage } from './register-page'

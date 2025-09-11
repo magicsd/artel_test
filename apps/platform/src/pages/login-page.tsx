@@ -10,9 +10,11 @@ import {
 } from '@artelonline/ui'
 import { Eye, EyeOff, Send } from 'lucide-react'
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
-export const LoginPage: React.FC = () => {
+export function LoginPage() {
+  const { t } = useTranslation('auth')
   const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
     login: '',
@@ -51,10 +53,8 @@ export const LoginPage: React.FC = () => {
 
         <Card className="shadow-lg">
           <CardHeader className="text-center">
-            <CardTitle className="text-xl font-semibold">Рады видеть вас снова</CardTitle>
-            <CardDescription className="text-gray-600">
-              Войдите через аккаунт Telegram
-            </CardDescription>
+            <CardTitle className="text-xl font-semibold">{t('login.title')}</CardTitle>
+            <CardDescription className="text-gray-600">{t('login.subtitle')}</CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
             {/* Кнопка входа через Telegram */}
@@ -64,7 +64,7 @@ export const LoginPage: React.FC = () => {
               className="h-12 w-full text-base font-medium"
             >
               <Send className="mr-2 h-5 w-5" />
-              Войти через Telegram
+              {t('login.telegramButton')}
             </Button>
 
             {/* Разделитель */}
@@ -73,14 +73,14 @@ export const LoginPage: React.FC = () => {
                 <div className="w-full border-t border-gray-300" />
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="bg-white px-2 text-gray-500">или</span>
+                <span className="bg-white px-2 text-gray-500">{t('login.or')}</span>
               </div>
             </div>
 
             {/* Форма входа */}
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="login">Логин / Email / Телефон</Label>
+                <Label htmlFor="login">{t('login.loginLabel')}</Label>
                 <div className="relative">
                   <Input
                     id="login"
@@ -103,9 +103,9 @@ export const LoginPage: React.FC = () => {
 
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <Label htmlFor="password">Пароль</Label>
+                  <Label htmlFor="password">{t('login.passwordLabel')}</Label>
                   <Link to="/forgot-password" className="text-sm text-blue-600 hover:underline">
-                    Забыли пароль?
+                    {t('login.forgotPassword')}
                   </Link>
                 </div>
                 <div className="relative">
@@ -136,15 +136,15 @@ export const LoginPage: React.FC = () => {
                 type="submit"
                 className="h-12 w-full bg-blue-600 text-base font-medium hover:bg-blue-700"
               >
-                Войти
+                {t('login.loginButton')}
               </Button>
             </form>
 
             {/* Ссылка на регистрацию */}
             <div className="text-center">
-              <span className="text-gray-600">Нет аккаунта? </span>
+              <span className="text-gray-600">{t('login.noAccount')} </span>
               <Link to="/register" className="font-medium text-blue-600 hover:underline">
-                Создать
+                {t('login.createAccount')}
               </Link>
             </div>
           </CardContent>
@@ -152,10 +152,9 @@ export const LoginPage: React.FC = () => {
 
         {/* Соглашение */}
         <div className="mt-6 text-center text-sm text-gray-500">
-          Используя сервис АртельОнлайн, вы <br />
-          соглашаетесь с условиями{' '}
+          {t('login.agreement')} <br />
           <Link to="/terms" className="text-blue-600 hover:underline">
-            договора оферты
+            {t('login.offerAgreement')}
           </Link>
           .
         </div>

@@ -1,15 +1,24 @@
+import { ThemeProvider } from '@artelonline/shared'
 import { Routes, Route } from 'react-router-dom'
-import { HomePage, AboutPage, DashboardPage } from '../pages'
-
-// i18n инициализируется автоматически при импорте shared пакета
+import { Layout } from '../components'
+import { HomePage, AboutPage, DashboardPage, LoginPage, RegisterPage } from '../pages'
 
 export function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/about" element={<AboutPage />} />
-      <Route path="/dashboard" element={<DashboardPage />} />
-    </Routes>
+    <ThemeProvider defaultTheme="system" storageKey="artel-ui-theme">
+      <Routes>
+        {/* Auth routes without layout */}
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+
+        {/* Main routes with layout */}
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="about" element={<AboutPage />} />
+          <Route path="dashboard" element={<DashboardPage />} />
+        </Route>
+      </Routes>
+    </ThemeProvider>
   )
 }
 

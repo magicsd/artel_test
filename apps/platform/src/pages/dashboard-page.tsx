@@ -3,7 +3,7 @@ import { ArrowLeft, BarChart3, Users, Settings, Bell } from 'lucide-react'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export const DashboardPage: React.FC = () => {
+export function DashboardPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}

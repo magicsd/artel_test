@@ -1,9 +1,11 @@
 import { Button, Card, CardContent, Input, Label } from '@artelonline/ui'
 import { ArrowLeft, Check } from 'lucide-react'
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
-export const RegisterPage: React.FC = () => {
+export function RegisterPage() {
+  const { t } = useTranslation('auth')
   const [formData, setFormData] = useState({
     accountName: '',
     lastName: '',
@@ -47,18 +49,18 @@ export const RegisterPage: React.FC = () => {
   // Генерация массивов для селектов
   const days = Array.from({ length: 31 }, (_, i) => i + 1)
   const months = [
-    'январь',
-    'февраль',
-    'март',
-    'апрель',
-    'май',
-    'июнь',
-    'июль',
-    'август',
-    'сентябрь',
-    'октябрь',
-    'ноябрь',
-    'декабрь',
+    t('months.january'),
+    t('months.february'),
+    t('months.march'),
+    t('months.april'),
+    t('months.may'),
+    t('months.june'),
+    t('months.july'),
+    t('months.august'),
+    t('months.september'),
+    t('months.october'),
+    t('months.november'),
+    t('months.december'),
   ]
   const currentYear = new Date().getFullYear()
   const years = Array.from({ length: 100 }, (_, i) => currentYear - i)
@@ -73,9 +75,9 @@ export const RegisterPage: React.FC = () => {
             className="mb-4 inline-flex items-center text-gray-600 hover:text-gray-800"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Назад к входу
+            {t('register.backToLogin')}
           </Link>
-          <h1 className="text-3xl font-bold text-gray-900">Регистрация</h1>
+          <h1 className="text-3xl font-bold text-gray-900">{t('register.title')}</h1>
         </div>
 
         <Card className="shadow-lg">

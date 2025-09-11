@@ -1,0 +1,25 @@
+{
+  "title": "Дашборд",
+  "backToHome": "На главную",
+  "stats": {
+    "totalUsers": "Всего пользователей",
+    "activeSessions": "Активные сессии",
+    "conversion": "Конверсия",
+    "revenue": "Доход",
+    "lastMonth": "+{{percent}}% с прошлого месяца",
+    "lastWeek": "+{{percent}}% с прошлой недели"
+  },
+  "charts": {
+    "userActivity": "Активность пользователей",
+    "userActivityDescription": "Статистика за последние 7 дней",
+    "recentActions": "Последние действия",
+    "recentActionsDescription": "Недавние события в системе",
+    "userActivityChart": "График активности пользователей",
+    "newUserRegistered": "Новый пользователь зарегистрировался",
+    "systemUpdateCompleted": "Обновление системы завершено",
+    "backupCompleted": "Резервное копирование выполнено",
+    "minutesAgo": "{{count}} минут назад",
+    "hourAgo": "{{count}} час назад"
+  }
+}
+

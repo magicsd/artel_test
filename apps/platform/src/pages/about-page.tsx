@@ -3,7 +3,7 @@ import { ArrowLeft } from 'lucide-react'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export const AboutPage: React.FC = () => {
+export function AboutPage() {
   return (
     <div className="min-h-screen bg-gray-50 px-4 py-12">
       <div className="mx-auto max-w-4xl">

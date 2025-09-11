@@ -16,5 +16,27 @@
   "close": "Close",
   "open": "Open",
   "yes": "Yes",
-  "no": "No"
+  "no": "No",
+  "navigation": {
+    "platform": "Platform",
+    "dashboard": "Dashboard",
+    "dashboardDesc": "Access your personal dashboard",
+    "about": "About",
+    "aboutDesc": "Learn more about our platform",
+    "home": "Home",
+    "login": "Sign In",
+    "register": "Sign Up",
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Sign Out"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "allRightsReserved": "All rights reserved.",
+  "privacy": "Privacy",
+  "terms": "Terms",
+  "support": "Support"
 }

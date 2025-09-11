@@ -1,0 +1,25 @@
+{
+  "title": "Dashboard",
+  "backToHome": "Back to Home",
+  "stats": {
+    "totalUsers": "Total Users",
+    "activeSessions": "Active Sessions",
+    "conversion": "Conversion",
+    "revenue": "Revenue",
+    "lastMonth": "+{{percent}}% from last month",
+    "lastWeek": "+{{percent}}% from last week"
+  },
+  "charts": {
+    "userActivity": "User Activity",
+    "userActivityDescription": "Statistics for the last 7 days",
+    "recentActions": "Recent Actions",
+    "recentActionsDescription": "Recent system events",
+    "userActivityChart": "User activity chart",
+    "newUserRegistered": "New user registered",
+    "systemUpdateCompleted": "System update completed",
+    "backupCompleted": "Backup completed",
+    "minutesAgo": "{{count}} minutes ago",
+    "hourAgo": "{{count}} hour ago"
+  }
+}
+
