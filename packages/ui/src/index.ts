@@ -18,3 +18,5 @@ export * from './lib/utils';
 // Styles
 export './globals.css';
 
+export * from "./components/ui/avatar";
+export * from "./components/ui/badge";

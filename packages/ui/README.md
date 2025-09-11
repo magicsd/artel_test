@@ -2,72 +2,40 @@
 
 UI компоненты на основе shadcn/ui для проекта ArtelOnline.
 
-## Установка компонентов
+## Добавление компонентов
 
-### Добавление отдельных компонентов
-
-```bash
-# Из корня проекта
-cd packages/ui
-
-# Добавить конкретный компонент
-npm run add:button
-npm run add:dialog
-npm run add:form
-npm run add:select
-
-# Или использовать общую команду
-npm run add-component <component-name>
-```
-
-### Массовое добавление компонентов
+### Официальный shadcn CLI
 
 ```bash
-# Добавить основные компоненты
-npm run setup-common
+# Из директории packages/ui
+npm run add dialog
+npm run add button
+npm run add form
 
-# Добавить все популярные компоненты
-npm run setup-all
+# Или напрямую
+npx shadcn@latest add dialog
 ```
 
 ## Доступные компоненты
 
-### Основные (setup-common)
-- button
-- card
-- input
-- label
-- form
-- dialog
-- select
-- textarea
+### Основные
+- button, card, input, label, form, dialog, select, textarea
 
 ### Дополнительные
-- checkbox
-- radio-group
-- switch
-- tabs
-- table
-- toast
-- tooltip
-- popover
-- dropdown-menu
-- navigation-menu
-- sheet
-- alert
-- alert-dialog
-- badge
-- avatar
-- skeleton
-- progress
-- slider
-- separator
-- accordion
-- collapsible
-- command
-- combobox
-- calendar
-- date-picker
+- checkbox, radio-group, switch, tabs, table, toast, tooltip
+- popover, dropdown-menu, navigation-menu, sheet, alert, alert-dialog
+- badge, avatar, skeleton, progress, slider, separator
+- accordion, collapsible, command, combobox, calendar, date-picker
+
+## После добавления компонента
+
+1. ✅ Файлы создаются в `src/components/ui/`
+2. 📝 Добавьте экспорт в `src/index.ts`:
+   ```ts
+   export * from './components/ui/new-component';
+   ```
+3. 🧪 При необходимости создайте Storybook stories
+4. 🔧 Добавьте тесты для компонента
 
 ## Использование
 
@@ -115,10 +83,3 @@ packages/ui/
 ├── components.json       # конфигурация shadcn
 └── package.json
 ```
-
-## Примечания
-
-- После добавления компонента через npm script, файл создается в корне проекта
-- Необходимо вручную переместить файл в `packages/ui/src/components/ui/`
-- Обновить экспорты в `packages/ui/src/index.ts`
-- Это временное ограничение shadcn CLI в монорепозитории

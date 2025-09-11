@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "prepare": "husky",
-    "add:ui": "node scripts/add-ui-component.mjs"
+    "add:ui": "cd packages/ui && npx shadcn@latest add"
   },
   "engines": {
     "node": ">=22.14.0",
@@ -100,7 +100,6 @@
     "tw-animate-css": "^1.3.8",
     "typescript": "~5.9.2",
     "typescript-eslint": "^8.43.0",
-    "ui": "^0.2.4",
     "vite": "^7.1.5",
     "vite-plugin-dts": "~4.5.4",
     "vitest": "^3.2.4"
