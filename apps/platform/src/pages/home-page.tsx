@@ -10,7 +10,7 @@ export const HomePage = () => {
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950 dark:to-indigo-950">
-        <div className="container py-24 lg:py-32">
+        <div className="container mx-auto py-24 lg:py-32">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">{t('hero.title')}</h1>
             <p className="text-muted-foreground mt-6 text-lg leading-8">{t('hero.subtitle')}</p>
@@ -31,7 +31,7 @@ export const HomePage = () => {
 
       {/* Features Section */}
       <section className="py-24">
-        <div className="container">
+        <div className="container mx-auto px-6">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{t('features.title')}</h2>
             <p className="text-muted-foreground mt-6 text-lg leading-8">{t('features.subtitle')}</p>
@@ -84,7 +84,7 @@ export const HomePage = () => {
 
       {/* CTA Section */}
       <section className="bg-primary">
-        <div className="container py-24">
+        <div className="container mx-auto py-24">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-primary-foreground text-3xl font-bold tracking-tight sm:text-4xl">
               {t('cta.title')}

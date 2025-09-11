@@ -5,16 +5,18 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@artelonline/ui'
-import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
 } from '@artelonline/ui'
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@artelonline/ui'
 import { Menu, Moon, Sun, Globe, User, LogIn, UserPlus } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Link, Outlet, useLocation } from 'react-router-dom'
@@ -35,7 +37,7 @@ export function Layout() {
     <div className="bg-background min-h-screen">
       {/* Fixed Header */}
       <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur">
-        <div className="container flex h-16 items-center justify-between">
+        <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <div className="bg-primary flex h-8 w-8 items-center justify-center rounded-full">
@@ -98,7 +100,6 @@ export function Layout() {
               variant="ghost"
               size="sm"
               onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-              className="h-9 w-9 px-0"
             >
               <Sun className="h-4 w-4 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
               <Moon className="absolute h-4 w-4 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
@@ -110,13 +111,13 @@ export function Layout() {
               <div className="hidden items-center space-x-2 md:flex">
                 <Button variant="ghost" size="sm" asChild>
                   <Link to="/login">
-                    <LogIn className="mr-2 h-4 w-4" />
+                    <LogIn />
                     {t('navigation.login')}
                   </Link>
                 </Button>
                 <Button size="sm" asChild>
                   <Link to="/register">
-                    <UserPlus className="mr-2 h-4 w-4" />
+                    <UserPlus />
                     {t('navigation.register')}
                   </Link>
                 </Button>
@@ -203,7 +204,7 @@ export function Layout() {
 
       {/* Footer */}
       <footer className="bg-background border-t">
-        <div className="container py-6">
+        <div className="container mx-auto px-4 py-6 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <p className="text-muted-foreground text-sm">
               © 2024 АртельОнлайн. {t('allRightsReserved')}
