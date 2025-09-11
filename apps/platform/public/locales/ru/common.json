@@ -17,6 +17,13 @@
   "open": "Открыть",
   "yes": "Да",
   "no": "Нет",
+  "toggleLanguage": "Переключить язык",
+  "toggleTheme": "Переключить тему",
+  "userMenu": "Меню пользователя",
+  "menu": "Меню",
+  "profile": "Профиль",
+  "settings": "Настройки",
+  "logout": "Выйти",
   "navigation": {
     "platform": "Платформа",
     "dashboard": "Дашборд",
@@ -25,10 +32,7 @@
     "aboutDesc": "Узнайте больше о нашей платформе",
     "home": "Главная",
     "login": "Войти",
-    "register": "Регистрация",
-    "profile": "Профиль",
-    "settings": "Настройки",
-    "logout": "Выйти"
+    "register": "Регистрация"
   },
   "theme": {
     "light": "Светлая",

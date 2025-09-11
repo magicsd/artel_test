@@ -49,7 +49,7 @@ export function Layout() {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>{t('common:navigation.platform')}</NavigationMenuTrigger>
+                  <NavigationMenuTrigger>{t('navigation.platform')}</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="grid w-[400px] gap-3 p-6">
                       <NavigationMenuLink asChild>
@@ -58,10 +58,10 @@ export function Layout() {
                           className="hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block space-y-1 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none"
                         >
                           <div className="text-sm leading-none font-medium">
-                            {t('common:navigation.dashboard')}
+                            {t('navigation.dashboard')}
                           </div>
                           <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
-                            {t('common:navigation.dashboardDesc')}
+                            {t('navigation.dashboardDesc')}
                           </p>
                         </Link>
                       </NavigationMenuLink>
@@ -71,10 +71,10 @@ export function Layout() {
                           className="hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block space-y-1 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none"
                         >
                           <div className="text-sm leading-none font-medium">
-                            {t('common:navigation.about')}
+                            {t('navigation.about')}
                           </div>
                           <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
-                            {t('common:navigation.aboutDesc')}
+                            {t('navigation.aboutDesc')}
                           </p>
                         </Link>
                       </NavigationMenuLink>
@@ -90,7 +90,7 @@ export function Layout() {
             {/* Language Toggle */}
             <Button variant="ghost" size="sm" onClick={toggleLanguage} className="h-9 w-9 px-0">
               <Globe className="h-4 w-4" />
-              <span className="sr-only">{t('common:toggleLanguage')}</span>
+              <span className="sr-only">{t('toggleLanguage')}</span>
             </Button>
 
             {/* Theme Toggle */}
@@ -102,7 +102,7 @@ export function Layout() {
             >
               <Sun className="h-4 w-4 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
               <Moon className="absolute h-4 w-4 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
-              <span className="sr-only">{t('common:toggleTheme')}</span>
+              <span className="sr-only">{t('toggleTheme')}</span>
             </Button>
 
             {/* Auth Buttons - Desktop */}
@@ -128,16 +128,16 @@ export function Layout() {
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="sm" className="hidden h-9 w-9 px-0">
                   <User className="h-4 w-4" />
-                  <span className="sr-only">{t('common:userMenu')}</span>
+                  <span className="sr-only">{t('userMenu')}</span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <DropdownMenuItem>
                   <User className="mr-2 h-4 w-4" />
-                  {t('common:profile')}
+                  {t('profile')}
                 </DropdownMenuItem>
-                <DropdownMenuItem>{t('common:settings')}</DropdownMenuItem>
-                <DropdownMenuItem>{t('common:logout')}</DropdownMenuItem>
+                <DropdownMenuItem>{t('settings')}</DropdownMenuItem>
+                <DropdownMenuItem>{t('logout')}</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
@@ -147,7 +147,7 @@ export function Layout() {
                 <SheetTrigger asChild>
                   <Button variant="ghost" size="sm" className="h-9 w-9 px-0">
                     <Menu className="h-4 w-4" />
-                    <span className="sr-only">{t('common:menu')}</span>
+                    <span className="sr-only">{t('menu')}</span>
                   </Button>
                 </SheetTrigger>
                 <SheetContent side="right" className="w-80">
@@ -160,13 +160,13 @@ export function Layout() {
                         to="/dashboard"
                         className="hover:bg-accent block rounded-md px-3 py-2 text-sm font-medium"
                       >
-                        {t('common:navigation.dashboard')}
+                        {t('navigation.dashboard')}
                       </Link>
                       <Link
                         to="/about"
                         className="hover:bg-accent block rounded-md px-3 py-2 text-sm font-medium"
                       >
-                        {t('common:navigation.about')}
+                        {t('navigation.about')}
                       </Link>
                     </div>
 
@@ -206,17 +206,17 @@ export function Layout() {
         <div className="container py-6">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <p className="text-muted-foreground text-sm">
-              © 2024 АртельОнлайн. {t('common:allRightsReserved')}
+              © 2024 АртельОнлайн. {t('allRightsReserved')}
             </p>
             <div className="text-muted-foreground flex items-center space-x-4 text-sm">
               <Link to="/privacy" className="hover:text-foreground">
-                {t('common:privacy')}
+                {t('privacy')}
               </Link>
               <Link to="/terms" className="hover:text-foreground">
-                {t('common:terms')}
+                {t('terms')}
               </Link>
               <Link to="/support" className="hover:text-foreground">
-                {t('common:support')}
+                {t('support')}
               </Link>
             </div>
           </div>

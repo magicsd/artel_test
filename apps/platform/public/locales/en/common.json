@@ -17,6 +17,13 @@
   "open": "Open",
   "yes": "Yes",
   "no": "No",
+  "toggleLanguage": "Toggle language",
+  "toggleTheme": "Toggle theme",
+  "userMenu": "User menu",
+  "menu": "Menu",
+  "profile": "Profile",
+  "settings": "Settings",
+  "logout": "Sign Out",
   "navigation": {
     "platform": "Platform",
     "dashboard": "Dashboard",
@@ -25,10 +32,7 @@
     "aboutDesc": "Learn more about our platform",
     "home": "Home",
     "login": "Sign In",
-    "register": "Sign Up",
-    "profile": "Profile",
-    "settings": "Settings",
-    "logout": "Sign Out"
+    "register": "Sign Up"
   },
   "theme": {
     "light": "Light",
