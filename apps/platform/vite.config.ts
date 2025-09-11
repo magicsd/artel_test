@@ -1,6 +1,7 @@
 /// <reference types='vitest' />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import path from 'path';
 
 export default defineConfig(() => ({
   root: __dirname,
@@ -14,6 +15,13 @@ export default defineConfig(() => ({
     host: 'localhost',
   },
   plugins: [react()],
+  resolve: {
+    alias: {
+      '@frontend/ui': path.resolve(__dirname, '../../packages/ui/src'),
+      '@frontend/shared': path.resolve(__dirname, '../../packages/shared/src'),
+      '@frontend/config': path.resolve(__dirname, '../../packages/config/src'),
+    },
+  },
   // Uncomment this if you are using workers.
   // worker: {
   //  plugins: [ nxViteTsPaths() ],
@@ -39,3 +47,4 @@ export default defineConfig(() => ({
     },
   },
 }));
+

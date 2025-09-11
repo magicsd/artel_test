@@ -1,0 +1,13 @@
+tree a3440f0c168d7e891e067e0ec385cd233d7b462b
+parent e918b550a0f9d4b74454bc45307b3cbf7f2d3325
+author Developer <developer@example.com> 1757602641 -0400
+committer Developer <developer@example.com> 1757602641 -0400
+
+feat: update packages and fix build issues
+
+- Updated all packages to latest stable versions
+- Fixed Tailwind CSS 4 PostCSS configuration
+- Fixed TypeScript imports and dependencies
+- Added local utils to UI package to avoid circular dependencies
+- Fixed vitest imports in test setup
+- Resolved build errors for all packages
