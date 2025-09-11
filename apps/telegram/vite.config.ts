@@ -2,40 +2,46 @@
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
-export default defineConfig(() => ({
-  root: __dirname,
-  cacheDir: '../../node_modules/.vite/apps/telegram',
-  server: {
-    port: 4201,
-    host: 'localhost',
-  },
-  preview: {
-    port: 4201,
-    host: 'localhost',
-  },
-  plugins: [react()],
-  // Uncomment this if you are using workers.
-  // worker: {
-  //  plugins: [ nxViteTsPaths() ],
-  // },
-  build: {
-    outDir: './dist',
-    emptyOutDir: true,
-    reportCompressedSize: true,
-    commonjsOptions: {
-      transformMixedEsModules: true,
+export default defineConfig(async () => {
+  const { default: tailwindcss } = await import('@tailwindcss/vite')
+  return {
+    root: __dirname,
+    cacheDir: '../../node_modules/.vite/apps/telegram',
+    server: {
+      port: 4201,
+      host: 'localhost',
     },
-  },
-  test: {
-    name: '@artelonline/telegram',
-    watch: false,
-    globals: true,
-    environment: 'jsdom',
-    include: ['{src,tests}/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-    reporters: ['default'],
-    coverage: {
-      reportsDirectory: './test-output/vitest/coverage',
-      provider: 'v8' as const,
+    preview: {
+      port: 4201,
+      host: 'localhost',
     },
-  },
-}))
+    plugins: [react(), tailwindcss()],
+    ssr: {
+      noExternal: ['@tailwindcss/vite'],
+    },
+    // Uncomment this if you are using workers.
+    // worker: {
+    //  plugins: [ nxViteTsPaths() ],
+    // },
+    build: {
+      outDir: './dist',
+      emptyOutDir: true,
+      reportCompressedSize: true,
+      commonjsOptions: {
+        transformMixedEsModules: true,
+      },
+    },
+    test: {
+      name: '@artelonline/telegram',
+      watch: false,
+      globals: true,
+      environment: 'jsdom',
+      include: ['{src,tests}/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+      reporters: ['default'],
+      coverage: {
+        reportsDirectory: './test-output/vitest/coverage',
+        provider: 'v8' as const,
+      },
+    },
+  }
+})
