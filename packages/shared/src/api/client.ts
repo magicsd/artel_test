@@ -10,11 +10,6 @@ export interface ApiResponse<T = any> {
   errors?: Record<string, string[]>
 }
 
-export interface ApiError {
-  message: string
-  status: number
-  errors?: Record<string, string[]>
-}
 
 export class ApiClient {
   private baseURL: string
@@ -149,7 +144,7 @@ export class ApiClient {
 
 // Default API client instance
 export const apiClient = new ApiClient(
-  import.meta.env.MODE || process.env.VITE_API_URL || 'http://localhost:3001/api',
+  import.meta.env.VITE_API_URL ?? 'http://localhost:3001/api',
 )
 
 // Custom error class

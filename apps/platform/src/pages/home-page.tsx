@@ -9,7 +9,7 @@ export const HomePage = () => {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950 dark:to-indigo-950">
+      <section className="bg-gradient-to-br from-white to-indigo-100 dark:from-blue-800 dark:to-indigo-950">
         <div className="container mx-auto py-24 lg:py-32">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">{t('hero.title')}</h1>
@@ -18,7 +18,7 @@ export const HomePage = () => {
               <Button size="lg" asChild>
                 <Link to="/register">
                   {t('getStarted')}
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight />
                 </Link>
               </Button>
               <Button variant="outline" size="lg" asChild>

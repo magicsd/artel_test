@@ -170,13 +170,17 @@ export function useAuth() {
 }
 
 export function useLogin() {
-  return useMutation({
-    mutationFn: (credentials: { email: string; password: string }) =>
-      apiClient.post('/auth/login', credentials),
+  return useMutation<
+    ApiResponse<{ token?: string }>,
+    ApiError,
+    { email: string; password: string }
+  >({
+    mutationFn: (credentials) => apiClient.post<{ token?: string }>('/auth/login', credentials),
     onSuccess: (data) => {
       // Set auth token
-      if (data.data.token) {
-        apiClient.setAuthToken(data.data.token)
+      const token = data.data?.token
+      if (token) {
+        apiClient.setAuthToken(token)
       }
       // Invalidate auth queries
       cacheUtils.invalidateByPattern(queryKeys.auth.all)

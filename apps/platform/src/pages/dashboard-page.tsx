@@ -1,6 +1,5 @@
 import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle } from '@artelonline/ui'
 import { ArrowLeft, BarChart3, Users, Settings, Bell } from 'lucide-react'
-import React from 'react'
 import { Link } from 'react-router-dom'
 
 export function DashboardPage() {
