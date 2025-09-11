@@ -5,6 +5,10 @@
   "scripts": {
     "prepare": "husky"
   },
+  "engines": {
+    "node": ">=22.14.0",
+    "pnpm": ">=9"
+  },
   "private": true,
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",
