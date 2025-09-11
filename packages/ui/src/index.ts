@@ -16,7 +16,7 @@ export * from './components/theme-toggle';
 export * from './lib/utils';
 
 // Styles
-export './globals.css';
+// export './globals.css';
 
 export * from "./components/ui/avatar";
 export * from "./components/ui/badge";
@@ -24,3 +24,5 @@ export * from "./components/ui/alert";
 export * from "./components/ui/skeleton";
 export * from "./components/ui/slider";
 export * from "./components/ui/separator";
+export * from "./components/ui/card";
+export * from "./components/ui/input";
