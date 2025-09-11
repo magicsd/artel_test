@@ -1,12 +1,11 @@
-import React from 'react';
-import { useLanguage } from './hooks';
+import { useLanguage } from './hooks'
 
 interface LanguageSwitcherProps {
-  className?: string;
+  className?: string
 }
 
 export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ className }) => {
-  const { currentLanguage, changeLanguage, languages } = useLanguage();
+  const { currentLanguage, changeLanguage, languages } = useLanguage()
 
   return (
     <select
@@ -20,6 +19,5 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ className })
         </option>
       ))}
     </select>
-  );
-};
-
+  )
+}

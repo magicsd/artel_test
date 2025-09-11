@@ -1,7 +1,16 @@
+import {
+  Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  Input,
+  Label,
+} from '@frontend/ui'
+import { Eye, EyeOff, Send } from 'lucide-react'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Input, Label } from '@frontend/ui'
-import { Eye, EyeOff, Send } from 'lucide-react'
 
 export const LoginPage: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -30,12 +39,12 @@ export const LoginPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+    <div className="flex min-h-screen items-center justify-center bg-gray-100 p-4">
       <div className="w-full max-w-md">
         {/* Логотип */}
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mb-4">
-            <div className="text-white text-2xl font-bold">А</div>
+        <div className="mb-8 text-center">
+          <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-blue-600">
+            <div className="text-2xl font-bold text-white">А</div>
           </div>
           <h1 className="text-2xl font-bold text-blue-600">АртельОнлайн</h1>
         </div>
@@ -43,16 +52,18 @@ export const LoginPage: React.FC = () => {
         <Card className="shadow-lg">
           <CardHeader className="text-center">
             <CardTitle className="text-xl font-semibold">Рады видеть вас снова</CardTitle>
-            <CardDescription className="text-gray-600">Войдите через аккаунт Telegram</CardDescription>
+            <CardDescription className="text-gray-600">
+              Войдите через аккаунт Telegram
+            </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
             {/* Кнопка входа через Telegram */}
             <Button
               onClick={handleTelegramLogin}
               variant="outline"
-              className="w-full h-12 text-base font-medium"
+              className="h-12 w-full text-base font-medium"
             >
-              <Send className="w-5 h-5 mr-2" />
+              <Send className="mr-2 h-5 w-5" />
               Войти через Telegram
             </Button>
 
@@ -62,7 +73,7 @@ export const LoginPage: React.FC = () => {
                 <div className="w-full border-t border-gray-300" />
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">или</span>
+                <span className="bg-white px-2 text-gray-500">или</span>
               </div>
             </div>
 
@@ -81,17 +92,17 @@ export const LoginPage: React.FC = () => {
                     required
                   />
                   <div className="absolute inset-y-0 right-0 flex items-center pr-3">
-                    <div className="w-6 h-6 bg-red-500 rounded flex items-center justify-center">
-                      <div className="w-2 h-2 bg-white rounded-full" />
-                      <div className="w-2 h-2 bg-white rounded-full ml-0.5" />
-                      <div className="w-2 h-2 bg-white rounded-full ml-0.5" />
+                    <div className="flex h-6 w-6 items-center justify-center rounded bg-red-500">
+                      <div className="h-2 w-2 rounded-full bg-white" />
+                      <div className="ml-0.5 h-2 w-2 rounded-full bg-white" />
+                      <div className="ml-0.5 h-2 w-2 rounded-full bg-white" />
                     </div>
                   </div>
                 </div>
               </div>
 
               <div className="space-y-2">
-                <div className="flex justify-between items-center">
+                <div className="flex items-center justify-between">
                   <Label htmlFor="password">Пароль</Label>
                   <Link to="/forgot-password" className="text-sm text-blue-600 hover:underline">
                     Забыли пароль?
@@ -113,15 +124,18 @@ export const LoginPage: React.FC = () => {
                     className="absolute inset-y-0 right-0 flex items-center pr-3"
                   >
                     {showPassword ? (
-                      <EyeOff className="w-5 h-5 text-gray-400" />
+                      <EyeOff className="h-5 w-5 text-gray-400" />
                     ) : (
-                      <Eye className="w-5 h-5 text-gray-400" />
+                      <Eye className="h-5 w-5 text-gray-400" />
                     )}
                   </button>
                 </div>
               </div>
 
-              <Button type="submit" className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-base font-medium">
+              <Button
+                type="submit"
+                className="h-12 w-full bg-blue-600 text-base font-medium hover:bg-blue-700"
+              >
                 Войти
               </Button>
             </form>
@@ -129,7 +143,7 @@ export const LoginPage: React.FC = () => {
             {/* Ссылка на регистрацию */}
             <div className="text-center">
               <span className="text-gray-600">Нет аккаунта? </span>
-              <Link to="/register" className="text-blue-600 hover:underline font-medium">
+              <Link to="/register" className="font-medium text-blue-600 hover:underline">
                 Создать
               </Link>
             </div>
@@ -137,7 +151,7 @@ export const LoginPage: React.FC = () => {
         </Card>
 
         {/* Соглашение */}
-        <div className="text-center mt-6 text-sm text-gray-500">
+        <div className="mt-6 text-center text-sm text-gray-500">
           Используя сервис АртельОнлайн, вы <br />
           соглашаетесь с условиями{' '}
           <Link to="/terms" className="text-blue-600 hover:underline">
@@ -149,4 +163,3 @@ export const LoginPage: React.FC = () => {
     </div>
   )
 }
-

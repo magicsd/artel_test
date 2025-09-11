@@ -28125,9 +28125,9 @@ const i2 = typeof Set > "u" ? Set : r2;
 function zn(c) {
   var d;
   return (
-    // eslint-disable-next-line no-restricted-properties -- actual guard for environments without localName
+     
     (d = c.localName) !== null && d !== void 0 ? d : (
-      // eslint-disable-next-line no-restricted-properties -- required for the fallback
+       
       c.tagName.toLowerCase()
     )
   );
@@ -35015,7 +35015,7 @@ function TS() {
   return typeof jest < "u" && jest !== null ? (
     // legacy timers
     setTimeout._isMockFunction === !0 || // modern timers
-    // eslint-disable-next-line prefer-object-has-own -- not supported by our support matrix
+     
     Object.prototype.hasOwnProperty.call(setTimeout, "clock")
   ) : !1;
 }
@@ -37049,7 +37049,7 @@ function Qz() {
   return typeof jest < "u" && jest !== null ? (
     // legacy timers
     setTimeout._isMockFunction === !0 || // modern timers
-    // eslint-disable-next-line prefer-object-has-own -- No Object.hasOwn in all target environments we support.
+     
     Object.prototype.hasOwnProperty.call(setTimeout, "clock")
   ) : !1;
 }
@@ -37146,10 +37146,10 @@ function mq(c, d) {
     baseElement: y,
     debug: function(S, _, E) {
       return S === void 0 && (S = y), Array.isArray(S) ? (
-        // eslint-disable-next-line no-console
+         
         S.forEach((v) => console.log(am(v, _, E)))
       ) : (
-        // eslint-disable-next-line no-console,
+         
         console.log(am(S, _, E))
       );
     },

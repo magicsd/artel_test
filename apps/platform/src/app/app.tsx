@@ -1,10 +1,9 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { HomePage, AboutPage, DashboardPage } from '../pages';
-import { i18n } from '@frontend/shared';
+import { i18n } from '@frontend/shared'
+import { Routes, Route } from 'react-router-dom'
+import { HomePage, AboutPage, DashboardPage } from '../pages'
 
 // Инициализация i18n
-i18n;
+i18n
 
 export function App() {
   return (
@@ -13,7 +12,7 @@ export function App() {
       <Route path="/about" element={<AboutPage />} />
       <Route path="/dashboard" element={<DashboardPage />} />
     </Routes>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,7 +1,7 @@
-import { config } from './config.js';
+import { config } from "./config.js";
 
-describe('config', () => {
-  it('should work', () => {
-    expect(config()).toEqual('config');
+describe("config", () => {
+  it("should work", () => {
+    expect(config()).toEqual("config");
   });
 });

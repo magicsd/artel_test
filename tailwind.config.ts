@@ -1,10 +1,7 @@
-import type { Config } from 'tailwindcss';
+import type { Config } from 'tailwindcss'
 
 const config: Config = {
-  content: [
-    './apps/**/*.{js,ts,jsx,tsx,mdx}',
-    './packages/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['./apps/**/*.{js,ts,jsx,tsx,mdx}', './packages/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     container: {
       center: true,
@@ -71,7 +68,6 @@ const config: Config = {
     },
   },
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
-};
+}
 
-export default config;
-
+export default config

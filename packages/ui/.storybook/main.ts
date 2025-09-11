@@ -1,4 +1,4 @@
-import type { StorybookConfig } from '@storybook/react-vite';
+import type { StorybookConfig } from '@storybook/react-vite'
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
@@ -21,14 +21,13 @@ const config: StorybookConfig = {
   },
   viteFinal: async (config) => {
     // Настройка путей для монорепозитория
-    config.resolve = config.resolve || {};
+    config.resolve = config.resolve || {}
     config.resolve.alias = {
       ...config.resolve.alias,
       '@frontend/shared': '../../shared/src/index.ts',
-    };
-    return config;
+    }
+    return config
   },
-};
+}
 
-export default config;
-
+export default config

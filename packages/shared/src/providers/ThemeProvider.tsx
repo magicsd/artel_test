@@ -48,7 +48,7 @@ export function ThemeProvider({
   useEffect(() => {
     if (theme === 'system') {
       const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-      
+
       const handleChange = () => {
         const resolvedTheme = mediaQuery.matches ? 'dark' : 'light'
         document.documentElement.classList.remove('light', 'dark')
@@ -82,4 +82,3 @@ export const useTheme = () => {
 
   return context
 }
-

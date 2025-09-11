@@ -1,44 +1,43 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '@frontend/ui';
-import { useTranslation } from '@frontend/shared';
+import { useTranslation } from '@frontend/shared'
+import { Button } from '@frontend/ui'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const HomePage: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-      <div className="max-w-4xl mx-auto text-center">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
+      <div className="mx-auto max-w-4xl text-center">
         <div className="mb-8">
-          <h1 className="text-6xl font-bold text-gray-900 mb-4">
-            {t('welcome')} 👋
-          </h1>
-          <p className="text-xl text-gray-600 mb-8">
-            Добро пожаловать в современную платформу, построенную с использованием Nx, React, и Tailwind CSS 4
+          <h1 className="mb-4 text-6xl font-bold text-gray-900">{t('welcome')} 👋</h1>
+          <p className="mb-8 text-xl text-gray-600">
+            Добро пожаловать в современную платформу, построенную с использованием Nx, React, и
+            Tailwind CSS 4
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <div className="bg-white rounded-lg p-6 shadow-lg">
-            <div className="text-3xl mb-4">🚀</div>
-            <h3 className="text-lg font-semibold mb-2">Современная архитектура</h3>
+        <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="rounded-lg bg-white p-6 shadow-lg">
+            <div className="mb-4 text-3xl">🚀</div>
+            <h3 className="mb-2 text-lg font-semibold">Современная архитектура</h3>
             <p className="text-gray-600">Nx монорепозиторий с React приложениями</p>
           </div>
-          
-          <div className="bg-white rounded-lg p-6 shadow-lg">
-            <div className="text-3xl mb-4">🎨</div>
-            <h3 className="text-lg font-semibold mb-2">UI компоненты</h3>
+
+          <div className="rounded-lg bg-white p-6 shadow-lg">
+            <div className="mb-4 text-3xl">🎨</div>
+            <h3 className="mb-2 text-lg font-semibold">UI компоненты</h3>
             <p className="text-gray-600">shadcn/ui с Tailwind CSS 4</p>
           </div>
-          
-          <div className="bg-white rounded-lg p-6 shadow-lg">
-            <div className="text-3xl mb-4">🌍</div>
-            <h3 className="text-lg font-semibold mb-2">Интернационализация</h3>
+
+          <div className="rounded-lg bg-white p-6 shadow-lg">
+            <div className="mb-4 text-3xl">🌍</div>
+            <h3 className="mb-2 text-lg font-semibold">Интернационализация</h3>
             <p className="text-gray-600">Поддержка множественных языков</p>
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col justify-center gap-4 sm:flex-row">
           <Button asChild size="lg">
             <Link to="/about">О платформе</Link>
           </Button>
@@ -48,6 +47,5 @@ export const HomePage: React.FC = () => {
         </div>
       </div>
     </div>
-  );
-};
-
+  )
+}

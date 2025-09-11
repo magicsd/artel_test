@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { Button, Card, CardContent, CardHeader, CardTitle, Input, Label } from '@frontend/ui'
 import { ArrowLeft, Check } from 'lucide-react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export const RegisterPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -64,12 +64,15 @@ export const RegisterPage: React.FC = () => {
   const years = Array.from({ length: 100 }, (_, i) => currentYear - i)
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
-      <div className="max-w-2xl mx-auto">
+    <div className="min-h-screen bg-gray-50 px-4 py-8">
+      <div className="mx-auto max-w-2xl">
         {/* Заголовок */}
         <div className="mb-8">
-          <Link to="/login" className="inline-flex items-center text-gray-600 hover:text-gray-800 mb-4">
-            <ArrowLeft className="w-4 h-4 mr-2" />
+          <Link
+            to="/login"
+            className="mb-4 inline-flex items-center text-gray-600 hover:text-gray-800"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
             Назад к входу
           </Link>
           <h1 className="text-3xl font-bold text-gray-900">Регистрация</h1>
@@ -79,7 +82,7 @@ export const RegisterPage: React.FC = () => {
           <CardContent className="p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Имя аккаунта */}
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+              <div className="grid grid-cols-1 items-end gap-4 md:grid-cols-4">
                 <div className="md:col-span-3">
                   <Label htmlFor="accountName">
                     Имя аккаунта <span className="text-red-500">*</span>
@@ -93,7 +96,12 @@ export const RegisterPage: React.FC = () => {
                     required
                   />
                 </div>
-                <Button type="button" onClick={checkAccountName} variant="secondary" className="h-10">
+                <Button
+                  type="button"
+                  onClick={checkAccountName}
+                  variant="secondary"
+                  className="h-10"
+                >
                   Проверить
                 </Button>
               </div>
@@ -145,12 +153,12 @@ export const RegisterPage: React.FC = () => {
                 <Label>
                   Дата рождения <span className="text-red-500">*</span>
                 </Label>
-                <div className="grid grid-cols-3 gap-4 mt-2">
+                <div className="mt-2 grid grid-cols-3 gap-4">
                   <select
                     name="birthDay"
                     value={formData.birthDay}
                     onChange={handleInputChange}
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="border-input bg-background ring-offset-background placeholder:text-muted-foreground focus-visible:ring-ring flex h-10 w-full rounded-md border px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                     required
                   >
                     <option value="">день</option>
@@ -164,7 +172,7 @@ export const RegisterPage: React.FC = () => {
                     name="birthMonth"
                     value={formData.birthMonth}
                     onChange={handleInputChange}
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="border-input bg-background ring-offset-background placeholder:text-muted-foreground focus-visible:ring-ring flex h-10 w-full rounded-md border px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                     required
                   >
                     <option value="">месяц</option>
@@ -178,7 +186,7 @@ export const RegisterPage: React.FC = () => {
                     name="birthYear"
                     value={formData.birthYear}
                     onChange={handleInputChange}
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="border-input bg-background ring-offset-background placeholder:text-muted-foreground focus-visible:ring-ring flex h-10 w-full rounded-md border px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                     required
                   >
                     <option value="">год</option>
@@ -189,7 +197,7 @@ export const RegisterPage: React.FC = () => {
                     ))}
                   </select>
                 </div>
-                <p className="text-sm text-gray-600 mt-2">Вам должно исполниться 16 лет</p>
+                <p className="mt-2 text-sm text-gray-600">Вам должно исполниться 16 лет</p>
               </div>
 
               {/* Пол */}
@@ -197,7 +205,7 @@ export const RegisterPage: React.FC = () => {
                 <Label>
                   Пол <span className="text-red-500">*</span>
                 </Label>
-                <div className="flex gap-4 mt-2">
+                <div className="mt-2 flex gap-4">
                   <Button
                     type="button"
                     variant={formData.gender === 'male' ? 'default' : 'outline'}
@@ -246,19 +254,19 @@ export const RegisterPage: React.FC = () => {
                       required
                     />
                     <div
-                      className={`w-5 h-5 rounded border-2 flex items-center justify-center cursor-pointer ${
+                      className={`flex h-5 w-5 cursor-pointer items-center justify-center rounded border-2 ${
                         formData.agreeToTerms
-                          ? 'bg-blue-600 border-blue-600'
+                          ? 'border-blue-600 bg-blue-600'
                           : 'border-gray-300 bg-white hover:border-gray-400'
                       }`}
                       onClick={() =>
                         setFormData((prev) => ({ ...prev, agreeToTerms: !prev.agreeToTerms }))
                       }
                     >
-                      {formData.agreeToTerms && <Check className="w-3 h-3 text-white" />}
+                      {formData.agreeToTerms && <Check className="h-3 w-3 text-white" />}
                     </div>
                   </div>
-                  <label htmlFor="agreeToTerms" className="text-sm text-gray-700 cursor-pointer">
+                  <label htmlFor="agreeToTerms" className="cursor-pointer text-sm text-gray-700">
                     Соглашаюсь с{' '}
                     <Link to="/privacy" className="text-blue-600 hover:underline">
                       условиями конфиденциальности
@@ -286,9 +294,9 @@ export const RegisterPage: React.FC = () => {
                       className="sr-only"
                     />
                     <div
-                      className={`w-5 h-5 rounded border-2 flex items-center justify-center cursor-pointer ${
+                      className={`flex h-5 w-5 cursor-pointer items-center justify-center rounded border-2 ${
                         formData.registerOrganization
-                          ? 'bg-blue-600 border-blue-600'
+                          ? 'border-blue-600 bg-blue-600'
                           : 'border-gray-300 bg-white hover:border-gray-400'
                       }`}
                       onClick={() =>
@@ -298,10 +306,13 @@ export const RegisterPage: React.FC = () => {
                         }))
                       }
                     >
-                      {formData.registerOrganization && <Check className="w-3 h-3 text-white" />}
+                      {formData.registerOrganization && <Check className="h-3 w-3 text-white" />}
                     </div>
                   </div>
-                  <label htmlFor="registerOrganization" className="text-sm text-gray-700 cursor-pointer">
+                  <label
+                    htmlFor="registerOrganization"
+                    className="cursor-pointer text-sm text-gray-700"
+                  >
                     Также зарегистрировать свою организацию
                   </label>
                 </div>
@@ -311,7 +322,7 @@ export const RegisterPage: React.FC = () => {
               <div className="flex justify-end">
                 <Button
                   type="submit"
-                  className="px-8 py-3 bg-yellow-600 hover:bg-yellow-700 text-white font-medium"
+                  className="bg-yellow-600 px-8 py-3 font-medium text-white hover:bg-yellow-700"
                   disabled={!formData.agreeToTerms}
                 >
                   Зарегистрироваться
@@ -324,4 +335,3 @@ export const RegisterPage: React.FC = () => {
     </div>
   )
 }
-

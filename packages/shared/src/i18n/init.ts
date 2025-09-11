@@ -1,9 +1,9 @@
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
-import Backend from 'i18next-http-backend';
+import i18n from 'i18next'
+import LanguageDetector from 'i18next-browser-languagedetector'
+import Backend from 'i18next-http-backend'
+import { initReactI18next } from 'react-i18next'
 
-export const defaultNS = 'common';
+export const defaultNS = 'common'
 export const resources = {
   en: {
     common: {
@@ -85,7 +85,7 @@ export const resources = {
       about: 'О нас',
     },
   },
-} as const;
+} as const
 
 i18n
   .use(Backend)
@@ -96,7 +96,7 @@ i18n
     fallbackLng: 'en',
     defaultNS,
     ns: ['common', 'auth', 'navigation'],
-    
+
     interpolation: {
       escapeValue: false,
     },
@@ -115,7 +115,6 @@ i18n
     react: {
       useSuspense: false,
     },
-  });
+  })
 
-export default i18n;
-
+export default i18n

@@ -1,2 +1,2 @@
-export * from './lib/config.js';
-export * from './lib/test-utils';
+export * from './lib/config.js'
+export * from './lib/test-utils'
