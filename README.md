@@ -28,7 +28,7 @@ pnpm nx serve telegram    # http://localhost:4201
 pnpm nx serve marketing   # http://localhost:4202
 
 # Storybook для UI компонентов
-cd packages/ui && npm run storybook  # http://localhost:6006
+cd packages/ui && pnpm storybook  # http://localhost:6006
 ```
 
 ## Добавление UI компонентов
@@ -50,8 +50,8 @@ pnpm add:ui select
 cd packages/ui
 
 # Добавить компонент
-npm run add dialog
-npx shadcn@latest add button
+pnpm add dialog
+pnpm dlx shadcn@latest add button
 ```
 
 ### Доступные компоненты

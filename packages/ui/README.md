@@ -8,12 +8,12 @@ UI компоненты на основе shadcn/ui для проекта ArtelO
 
 ```bash
 # Из директории packages/ui
-npm run add dialog
-npm run add button
-npm run add form
+pnpm add dialog
+pnpm add button
+pnpm add form
 
 # Или напрямую
-npx shadcn@latest add dialog
+pnpm dlx shadcn@latest add dialog
 ```
 
 ## Доступные компоненты
@@ -57,7 +57,7 @@ export function MyComponent() {
 ## Storybook
 
 ```bash
-npm run storybook
+pnpm storybook
 ```
 
 Откроется на http://localhost:6006

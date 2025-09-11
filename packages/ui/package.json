@@ -8,7 +8,7 @@
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "add": "npx shadcn@latest add"
+    "add": "pnpm dlx shadcn@latest add"
   },
   "exports": {
     "./package.json": "./package.json",
