@@ -6,7 +6,7 @@ import { initReactI18next } from 'react-i18next'
 export const defaultNS = 'common'
 
 // Fallback resources in case files don't load
-const resources = {
+export const resources = {
   en: {
     common: {
       welcome: 'Welcome to Platform',

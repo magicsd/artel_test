@@ -1,4 +1,4 @@
-import { useLanguage } from './hooks'
+import { useLanguage } from './hooks.js'
 
 interface LanguageSwitcherProps {
   className?: string
@@ -10,10 +10,10 @@ export function LanguageSwitcher({ className }: LanguageSwitcherProps) {
   return (
     <select
       value={currentLanguage}
-      onChange={(e) => changeLanguage(e.target.value)}
+      onChange={(e) => changeLanguage(e.currentTarget.value)}
       className={className}
     >
-      {languages.map((lang) => (
+      {languages.map((lang: string) => (
         <option key={lang} value={lang}>
           {lang.toUpperCase()}
         </option>
