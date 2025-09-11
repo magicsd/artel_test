@@ -4,14 +4,14 @@
  */
 
 import { QueryClient, DefaultOptions } from '@tanstack/react-query'
-import { ApiError } from './client'
+import { ApiError } from './client.js'
 
 // Default query options
 const defaultQueryOptions: DefaultOptions = {
   queries: {
     // Stale time: 5 minutes
     staleTime: 5 * 60 * 1000,
-    // Cache time: 10 minutes  
+    // Cache time: 10 minutes
     gcTime: 10 * 60 * 1000,
     // Retry failed requests 3 times
     retry: (failureCount, error) => {
@@ -115,7 +115,7 @@ export const cacheUtils = {
   prefetch: <T>(
     queryKey: readonly unknown[],
     queryFn: () => Promise<T>,
-    options?: { staleTime?: number }
+    options?: { staleTime?: number },
   ) => {
     return queryClient.prefetchQuery({
       queryKey,
@@ -176,4 +176,3 @@ export const queryErrorUtils = {
     return error instanceof ApiError && error.status >= 500
   },
 }
-

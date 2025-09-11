@@ -28,12 +28,9 @@ export class ApiClient {
     }
   }
 
-  private async request<T>(
-    endpoint: string,
-    options: RequestInit = {}
-  ): Promise<ApiResponse<T>> {
+  private async request<T>(endpoint: string, options: RequestInit = {}): Promise<ApiResponse<T>> {
     const url = `${this.baseURL}${endpoint.startsWith('/') ? endpoint : `/${endpoint}`}`
-    
+
     const config: RequestInit = {
       ...options,
       headers: {
@@ -152,7 +149,7 @@ export class ApiClient {
 
 // Default API client instance
 export const apiClient = new ApiClient(
-  process.env.NEXT_PUBLIC_API_URL || process.env.VITE_API_URL || 'http://localhost:3001/api'
+  import.meta.env.MODE || process.env.VITE_API_URL || 'http://localhost:3001/api',
 )
 
 // Custom error class
@@ -160,7 +157,15 @@ class ApiError extends Error {
   status: number
   errors?: Record<string, string[]>
 
-  constructor({ message, status, errors }: { message: string; status: number; errors?: Record<string, string[]> }) {
+  constructor({
+    message,
+    status,
+    errors,
+  }: {
+    message: string
+    status: number
+    errors?: Record<string, string[]>
+  }) {
     super(message)
     this.name = 'ApiError'
     this.status = status
@@ -169,4 +174,3 @@ class ApiError extends Error {
 }
 
 export { ApiError }
-

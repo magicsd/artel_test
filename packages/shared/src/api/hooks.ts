@@ -11,8 +11,8 @@ import {
   UseMutationOptions,
   UseInfiniteQueryOptions,
 } from '@tanstack/react-query'
-import { apiClient, ApiResponse, ApiError } from './client'
-import { queryKeys, cacheUtils } from './query-client'
+import { apiClient, ApiResponse, ApiError } from './client.js'
+import { queryKeys, cacheUtils } from './query-client.js'
 
 // Generic types
 export interface PaginatedResponse<T> {
@@ -40,7 +40,7 @@ export interface ListFilters {
 export function useList<T>(
   endpoint: string,
   filters: ListFilters = {},
-  options?: Omit<UseQueryOptions<ApiResponse<PaginatedResponse<T>>>, 'queryKey' | 'queryFn'>
+  options?: Omit<UseQueryOptions<ApiResponse<PaginatedResponse<T>>>, 'queryKey' | 'queryFn'>,
 ) {
   return useQuery({
     queryKey: queryKeys.list(filters),
@@ -52,7 +52,7 @@ export function useList<T>(
 export function useDetail<T>(
   endpoint: string,
   id: string | number,
-  options?: Omit<UseQueryOptions<ApiResponse<T>>, 'queryKey' | 'queryFn'>
+  options?: Omit<UseQueryOptions<ApiResponse<T>>, 'queryKey' | 'queryFn'>,
 ) {
   return useQuery({
     queryKey: queryKeys.detail(id),
@@ -65,7 +65,10 @@ export function useDetail<T>(
 export function useInfiniteList<T>(
   endpoint: string,
   filters: Omit<ListFilters, 'page'> = {},
-  options?: Omit<UseInfiniteQueryOptions<ApiResponse<PaginatedResponse<T>>>, 'queryKey' | 'queryFn' | 'getNextPageParam'>
+  options?: Omit<
+    UseInfiniteQueryOptions<ApiResponse<PaginatedResponse<T>>>,
+    'queryKey' | 'queryFn' | 'getNextPageParam'
+  >,
 ) {
   return useInfiniteQuery({
     queryKey: queryKeys.list(filters),
@@ -83,7 +86,7 @@ export function useInfiniteList<T>(
 // CRUD mutation hooks
 export function useCreate<TData, TVariables = any>(
   endpoint: string,
-  options?: UseMutationOptions<ApiResponse<TData>, ApiError, TVariables>
+  options?: UseMutationOptions<ApiResponse<TData>, ApiError, TVariables>,
 ) {
   return useMutation({
     mutationFn: (data: TVariables) => apiClient.post<TData>(endpoint, data),
@@ -97,7 +100,7 @@ export function useCreate<TData, TVariables = any>(
 
 export function useUpdate<TData, TVariables = any>(
   endpoint: string,
-  options?: UseMutationOptions<ApiResponse<TData>, ApiError, TVariables & { id: string | number }>
+  options?: UseMutationOptions<ApiResponse<TData>, ApiError, TVariables & { id: string | number }>,
 ) {
   return useMutation({
     mutationFn: ({ id, ...data }: TVariables & { id: string | number }) =>
@@ -114,7 +117,7 @@ export function useUpdate<TData, TVariables = any>(
 
 export function usePartialUpdate<TData, TVariables = any>(
   endpoint: string,
-  options?: UseMutationOptions<ApiResponse<TData>, ApiError, TVariables & { id: string | number }>
+  options?: UseMutationOptions<ApiResponse<TData>, ApiError, TVariables & { id: string | number }>,
 ) {
   return useMutation({
     mutationFn: ({ id, ...data }: TVariables & { id: string | number }) =>
@@ -131,7 +134,7 @@ export function usePartialUpdate<TData, TVariables = any>(
 
 export function useDelete<TData = any>(
   endpoint: string,
-  options?: UseMutationOptions<ApiResponse<TData>, ApiError, string | number>
+  options?: UseMutationOptions<ApiResponse<TData>, ApiError, string | number>,
 ) {
   return useMutation({
     mutationFn: (id: string | number) => apiClient.delete<TData>(`${endpoint}/${id}`),
@@ -148,7 +151,7 @@ export function useDelete<TData = any>(
 // File upload hook
 export function useUpload<TData = any>(
   endpoint: string,
-  options?: UseMutationOptions<ApiResponse<TData>, ApiError, FormData>
+  options?: UseMutationOptions<ApiResponse<TData>, ApiError, FormData>,
 ) {
   return useMutation({
     mutationFn: (formData: FormData) => apiClient.upload<TData>(endpoint, formData),
@@ -195,12 +198,8 @@ export function useLogout() {
 
 export function useRegister() {
   return useMutation({
-    mutationFn: (userData: {
-      email: string
-      password: string
-      name: string
-      [key: string]: any
-    }) => apiClient.post('/auth/register', userData),
+    mutationFn: (userData: { email: string; password: string; name: string; [key: string]: any }) =>
+      apiClient.post('/auth/register', userData),
   })
 }
 
@@ -208,16 +207,12 @@ export function useRegister() {
 export function usePrefetch() {
   return {
     prefetchList: <T>(endpoint: string, filters: ListFilters = {}) => {
-      return cacheUtils.prefetch(
-        queryKeys.list(filters),
-        () => apiClient.get<PaginatedResponse<T>>(endpoint, filters)
+      return cacheUtils.prefetch(queryKeys.list(filters), () =>
+        apiClient.get<PaginatedResponse<T>>(endpoint, filters),
       )
     },
     prefetchDetail: <T>(endpoint: string, id: string | number) => {
-      return cacheUtils.prefetch(
-        queryKeys.detail(id),
-        () => apiClient.get<T>(`${endpoint}/${id}`)
-      )
+      return cacheUtils.prefetch(queryKeys.detail(id), () => apiClient.get<T>(`${endpoint}/${id}`))
     },
   }
 }
@@ -228,7 +223,7 @@ export function useOptimisticUpdate() {
     updateList: <T>(filters: ListFilters, updater: (old: T[]) => T[]) => {
       const queryKey = queryKeys.list(filters)
       const previousData = cacheUtils.getCachedData<ApiResponse<PaginatedResponse<T>>>(queryKey)
-      
+
       if (previousData) {
         cacheUtils.setCachedData(queryKey, {
           ...previousData,
@@ -238,23 +233,22 @@ export function useOptimisticUpdate() {
           },
         })
       }
-      
+
       return previousData
     },
-    
+
     updateDetail: <T>(id: string | number, updater: (old: T) => T) => {
       const queryKey = queryKeys.detail(id)
       const previousData = cacheUtils.getCachedData<ApiResponse<T>>(queryKey)
-      
+
       if (previousData) {
         cacheUtils.setCachedData(queryKey, {
           ...previousData,
           data: updater(previousData.data),
         })
       }
-      
+
       return previousData
     },
   }
 }
-
