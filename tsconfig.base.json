@@ -19,9 +19,9 @@
     "customConditions": ["@artelonline/source"],
     "baseUrl": ".",
     "paths": {
-      "@artelonline/ui": ["packages/ui/src/index.ts"],
+      "@artelonline/config": ["packages/config/src/index.ts"],
       "@artelonline/shared": ["packages/shared/src/index.ts"],
-      "@artelonline/config": ["packages/config/src/index.ts"]
+      "@artelonline/ui": ["packages/ui/src/index.ts"]
     }
   }
 }

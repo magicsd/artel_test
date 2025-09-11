@@ -180,9 +180,6 @@ importers:
       ajv:
         specifier: ^8.17.1
         version: 8.17.1
-      autoprefixer:
-        specifier: ^10.4.21
-        version: 10.4.21(postcss@8.5.6)
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1

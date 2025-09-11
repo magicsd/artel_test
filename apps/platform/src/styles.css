@@ -1,2 +1,4 @@
-@import '@artelonline/ui/globals.css';
+@import "../../../packages/ui/src/globals.css";
 
+@source "../src"
+@source "../../../packages/ui/src"
