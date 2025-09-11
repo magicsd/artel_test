@@ -1,4 +1,4 @@
-export { default as i18n } from './init';
-export * from './hooks';
-export * from './LanguageSwitcher';
+export { default as i18n } from './init.js';
+export * from './hooks.js';
+export * from './LanguageSwitcher.js';
 

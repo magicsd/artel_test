@@ -1,5 +1,5 @@
 import { useTranslation as useTranslationOriginal } from 'react-i18next';
-import { defaultNS, resources } from './init';
+import { defaultNS, resources } from './init.js';
 
 export const useTranslation = (ns?: keyof typeof resources.en) => {
   return useTranslationOriginal(ns ?? defaultNS);

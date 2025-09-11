@@ -1,0 +1,17 @@
+> vite build
+
+[36mvite v7.1.5 [32mbuilding for production...[36m[39m
+[2K[1Gtransforming (1) [2msrc/index.ts[22m[2K[1Gtransforming (6) [2m../../node_modules/.pnpm/tailwind-merge@3.3.1/node_modules[2K[1Gtransforming (14) [2m../../node_modules/.pnpm/react@19.0.0/node_modules/react/[2K[1Gtransforming (30) [2m../../node_modules/.pnpm/react@19.0.0/node_modules/react/[2K[1Gtransforming (36) [2m../../node_modules/.pnpm/html-parse-stringify@3.0.1/node_[2K[1G[32m✓[39m 43 modules transformed.
+[2K[1Grendering chunks (1)...[2K[1Grendering chunks (2)...[2K[1Grendering chunks (3)...[2K[1G[32m
+[36m[vite:dts][32m Start generate declaration files...[39m
+[96msrc/i18n/index.ts[0m:[93m3[0m:[93m15[0m - [91merror[0m[90m TS6142: [0mModule './LanguageSwitcher.js' was resolved to '/home/ubuntu/artel_test/packages/shared/src/i18n/LanguageSwitcher.tsx', but '--jsx' is not set.
+
+[7m3[0m export * from './LanguageSwitcher.js';
+[7m [0m [91m              ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[2K[1Gcomputing gzip size (0)...[2K[1Gcomputing gzip size (1)...[2K[1Gcomputing gzip size (2)...[2K[1Gcomputing gzip size (3)...[2K[1G[2mdist/[22m[36mindex.js                      [39m[1m[2m  0.20 kB[22m[1m[22m[2m │ gzip:  0.16 kB[22m
+[2mdist/[22m[36mbrowser-ponyfill-p_xj49YZ.js  [39m[1m[2m 15.31 kB[22m[1m[22m[2m │ gzip:  4.06 kB[22m
+[2mdist/[22m[36mindex-BDjWQgHB.js             [39m[1m[2m208.40 kB[22m[1m[22m[2m │ gzip: 48.81 kB[22m
+[32m[36m[vite:dts][32m Declaration files built in 1876ms.
+[39m
+[32m✓ built in 3.29s[39m

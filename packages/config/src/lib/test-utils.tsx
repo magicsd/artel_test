@@ -1,15 +1,9 @@
 import React, { ReactElement } from 'react';
 import { render, RenderOptions } from '@testing-library/react';
-import { I18nextProvider } from 'react-i18next';
-import { i18n } from '@frontend/shared';
 
-// Провайдер для тестов
+// Простой провайдер для тестов без i18n зависимости
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <I18nextProvider i18n={i18n}>
-      {children}
-    </I18nextProvider>
-  );
+  return <>{children}</>;
 };
 
 const customRender = (
