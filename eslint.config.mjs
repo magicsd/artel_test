@@ -23,19 +23,17 @@ export default tseslint.config(
       '**/storybook-static/**',
     ],
   },
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  pluginPrettierRecommended,
   {
     files: ['**/*.{ts,tsx}'],
     plugins: {
       'react-hooks': pluginHooks,
       'react-refresh': reactRefresh,
       react: pluginReact,
+      import: importPlugin,
     },
-    extends: [
-      js.configs.recommended,
-      ...tseslint.configs.recommended,
-      pluginPrettierRecommended,
-      importPlugin.flatConfigs.react,
-    ],
     languageOptions: {
       ecmaVersion: 'latest',
       globals: globals.browser,
