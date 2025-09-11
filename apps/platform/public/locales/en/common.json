@@ -1,0 +1,21 @@
+{
+  "welcome": "Welcome to Platform",
+  "loading": "Loading...",
+  "error": "Error",
+  "save": "Save",
+  "cancel": "Cancel",
+  "delete": "Delete",
+  "edit": "Edit",
+  "create": "Create",
+  "update": "Update",
+  "search": "Search",
+  "filter": "Filter",
+  "sort": "Sort",
+  "next": "Next",
+  "previous": "Previous",
+  "close": "Close",
+  "open": "Open",
+  "yes": "Yes",
+  "no": "No"
+}
+

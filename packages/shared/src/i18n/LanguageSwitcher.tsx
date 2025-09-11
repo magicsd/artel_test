@@ -1,0 +1,25 @@
+import React from 'react';
+import { useLanguage } from './hooks';
+
+interface LanguageSwitcherProps {
+  className?: string;
+}
+
+export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ className }) => {
+  const { currentLanguage, changeLanguage, languages } = useLanguage();
+
+  return (
+    <select
+      value={currentLanguage}
+      onChange={(e) => changeLanguage(e.target.value)}
+      className={className}
+    >
+      {languages.map((lang) => (
+        <option key={lang} value={lang}>
+          {lang.toUpperCase()}
+        </option>
+      ))}
+    </select>
+  );
+};
+
