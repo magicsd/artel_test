@@ -12,12 +12,8 @@ export const HomePage = () => {
       <section className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950 dark:to-indigo-950">
         <div className="container py-24 lg:py-32">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-              {t('hero.title')}
-            </h1>
-            <p className="text-muted-foreground mt-6 text-lg leading-8">
-              {t('hero.subtitle')}
-            </p>
+            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">{t('hero.title')}</h1>
+            <p className="text-muted-foreground mt-6 text-lg leading-8">{t('hero.subtitle')}</p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Button size="lg" asChild>
                 <Link to="/register">
@@ -37,12 +33,8 @@ export const HomePage = () => {
       <section className="py-24">
         <div className="container">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              {t('features.title')}
-            </h2>
-            <p className="text-muted-foreground mt-6 text-lg leading-8">
-              {t('features.subtitle')}
-            </p>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{t('features.title')}</h2>
+            <p className="text-muted-foreground mt-6 text-lg leading-8">{t('features.subtitle')}</p>
           </div>
           <div className="mx-auto mt-16 max-w-5xl">
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -97,19 +89,12 @@ export const HomePage = () => {
             <h2 className="text-primary-foreground text-3xl font-bold tracking-tight sm:text-4xl">
               {t('cta.title')}
             </h2>
-            <p className="text-primary-foreground/80 mt-6 text-lg leading-8">
-              {t('cta.subtitle')}
-            </p>
+            <p className="text-primary-foreground/80 mt-6 text-lg leading-8">{t('cta.subtitle')}</p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Button size="lg" variant="secondary" asChild>
                 <Link to="/register">{t('signUpNow')}</Link>
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-primary-foreground border-primary-foreground hover:bg-primary-foreground hover:text-primary"
-                asChild
-              >
+              <Button size="lg" variant="outline" asChild>
                 <Link to="/login">{t('signIn')}</Link>
               </Button>
             </div>

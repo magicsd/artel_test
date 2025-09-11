@@ -45,10 +45,10 @@ export function LoginPage() {
       <div className="w-full max-w-md">
         {/* Логотип */}
         <div className="mb-8 text-center">
-          <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-blue-600">
+          <div className="bg-primary mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full">
             <div className="text-2xl font-bold text-white">А</div>
           </div>
-          <h1 className="text-2xl font-bold text-blue-600">АртельОнлайн</h1>
+          <h1 className="text-primary text-2xl font-bold">АртельОнлайн</h1>
         </div>
 
         <Card className="shadow-lg">
@@ -104,7 +104,7 @@ export function LoginPage() {
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <Label htmlFor="password">{t('login.passwordLabel')}</Label>
-                  <Link to="/forgot-password" className="text-sm text-blue-600 hover:underline">
+                  <Link to="/forgot-password" className="text-primary text-sm hover:underline">
                     {t('login.forgotPassword')}
                   </Link>
                 </div>
@@ -132,18 +132,13 @@ export function LoginPage() {
                 </div>
               </div>
 
-              <Button
-                type="submit"
-                className="h-12 w-full bg-blue-600 text-base font-medium hover:bg-blue-700"
-              >
-                {t('login.loginButton')}
-              </Button>
+              <Button type="submit">{t('login.loginButton')}</Button>
             </form>
 
             {/* Ссылка на регистрацию */}
             <div className="text-center">
               <span className="text-gray-600">{t('login.noAccount')} </span>
-              <Link to="/register" className="font-medium text-blue-600 hover:underline">
+              <Link to="/register" className="text-primary font-medium hover:underline">
                 {t('login.createAccount')}
               </Link>
             </div>
@@ -153,7 +148,7 @@ export function LoginPage() {
         {/* Соглашение */}
         <div className="mt-6 text-center text-sm text-gray-500">
           {t('login.agreement')} <br />
-          <Link to="/terms" className="text-blue-600 hover:underline">
+          <Link to="/terms" className="text-primary hover:underline">
             {t('login.offerAgreement')}
           </Link>
           .

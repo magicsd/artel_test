@@ -42,12 +42,12 @@ const resources = {
         aboutDesc: 'Learn more about our platform',
         home: 'Home',
         login: 'Sign In',
-        register: 'Sign Up'
+        register: 'Sign Up',
       },
       theme: {
         light: 'Light',
         dark: 'Dark',
-        system: 'System'
+        system: 'System',
       },
       allRightsReserved: 'All rights reserved.',
       privacy: 'Privacy',
@@ -55,7 +55,7 @@ const resources = {
       support: 'Support',
       hero: {
         title: 'Welcome to ArtelOnline Platform',
-        subtitle: 'The modern platform for collaboration and productivity'
+        subtitle: 'The modern platform for collaboration and productivity',
       },
       getStarted: 'Get Started',
       learnMore: 'Learn More',
@@ -69,14 +69,14 @@ const resources = {
         security: 'Security',
         securityDesc: 'Your data is safe and secure with us',
         global: 'Global',
-        globalDesc: 'Access from anywhere in the world'
+        globalDesc: 'Access from anywhere in the world',
       },
       cta: {
         title: 'Ready to get started?',
-        subtitle: 'Join thousands of users who trust our platform'
+        subtitle: 'Join thousands of users who trust our platform',
       },
       signUpNow: 'Sign Up Now',
-      signIn: 'Sign In'
+      signIn: 'Sign In',
     },
     auth: {
       login: {
@@ -91,9 +91,9 @@ const resources = {
         noAccount: "Don't have an account?",
         createAccount: 'Create',
         agreement: 'By using ArtelOnline service, you agree to the terms of the',
-        offerAgreement: 'offer agreement'
-      }
-    }
+        offerAgreement: 'offer agreement',
+      },
+    },
   },
   ru: {
     common: {
@@ -130,12 +130,12 @@ const resources = {
         aboutDesc: 'Узнайте больше о нашей платформе',
         home: 'Главная',
         login: 'Войти',
-        register: 'Регистрация'
+        register: 'Регистрация',
       },
       theme: {
         light: 'Светлая',
         dark: 'Тёмная',
-        system: 'Системная'
+        system: 'Системная',
       },
       allRightsReserved: 'Все права защищены.',
       privacy: 'Конфиденциальность',
@@ -143,7 +143,7 @@ const resources = {
       support: 'Поддержка',
       hero: {
         title: 'Добро пожаловать на платформу АртельОнлайн',
-        subtitle: 'Современная платформа для совместной работы и продуктивности'
+        subtitle: 'Современная платформа для совместной работы и продуктивности',
       },
       getStarted: 'Начать',
       learnMore: 'Узнать больше',
@@ -157,14 +157,14 @@ const resources = {
         security: 'Безопасность',
         securityDesc: 'Ваши данные в безопасности',
         global: 'Глобальность',
-        globalDesc: 'Доступ из любой точки мира'
+        globalDesc: 'Доступ из любой точки мира',
       },
       cta: {
         title: 'Готовы начать?',
-        subtitle: 'Присоединяйтесь к тысячам пользователей, которые доверяют нашей платформе'
+        subtitle: 'Присоединяйтесь к тысячам пользователей, которые доверяют нашей платформе',
       },
       signUpNow: 'Зарегистрироваться',
-      signIn: 'Войти'
+      signIn: 'Войти',
     },
     auth: {
       login: {
@@ -179,10 +179,10 @@ const resources = {
         noAccount: 'Нет аккаунта?',
         createAccount: 'Создать',
         agreement: 'Используя сервис АртельОнлайн, вы соглашаетесь с условиями',
-        offerAgreement: 'договора оферты'
-      }
-    }
-  }
+        offerAgreement: 'договора оферты',
+      },
+    },
+  },
 }
 
 i18n

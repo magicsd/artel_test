@@ -258,7 +258,7 @@ export function RegisterPage() {
                     <div
                       className={`flex h-5 w-5 cursor-pointer items-center justify-center rounded border-2 ${
                         formData.agreeToTerms
-                          ? 'border-blue-600 bg-blue-600'
+                          ? 'border-primary bg-primary'
                           : 'border-gray-300 bg-white hover:border-gray-400'
                       }`}
                       onClick={() =>
@@ -270,15 +270,15 @@ export function RegisterPage() {
                   </div>
                   <label htmlFor="agreeToTerms" className="cursor-pointer text-sm text-gray-700">
                     Соглашаюсь с{' '}
-                    <Link to="/privacy" className="text-blue-600 hover:underline">
+                    <Link to="/privacy" className="text-primary hover:underline">
                       условиями конфиденциальности
                     </Link>{' '}
                     и{' '}
-                    <Link to="/terms" className="text-blue-600 hover:underline">
+                    <Link to="/terms" className="text-primary hover:underline">
                       условиями пользования сайта
                     </Link>
                     , а также даю{' '}
-                    <Link to="/consent" className="text-blue-600 hover:underline">
+                    <Link to="/consent" className="text-primary hover:underline">
                       добровольное согласие на использование моих персональных данных
                     </Link>
                     .
@@ -298,7 +298,7 @@ export function RegisterPage() {
                     <div
                       className={`flex h-5 w-5 cursor-pointer items-center justify-center rounded border-2 ${
                         formData.registerOrganization
-                          ? 'border-blue-600 bg-blue-600'
+                          ? 'border-primary bg-primary'
                           : 'border-gray-300 bg-white hover:border-gray-400'
                       }`}
                       onClick={() =>

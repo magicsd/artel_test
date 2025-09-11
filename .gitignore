@@ -34,4 +34,4 @@ __pycache__/
 *.py[cod]
 local_settings.py
 db.sqlite3
-
+tsconfig.tsbuildinfo
