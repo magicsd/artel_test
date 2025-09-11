@@ -1,13 +1,0 @@
-> vite
-
-node:net:2088
-    validatePort(options.port, 'options.port');
-    ^
-
-RangeError [ERR_SOCKET_BAD_PORT]: options.port should be >= 0 and < 65536. Received type number (42004200).
-[90m    at Server.listen (node:net:2088:5)[39m
-    at httpServer.listen (file:///home/ubuntu/artel_test/node_modules/[4m.pnpm[24m/vite@7.1.5_@types+node@20.19.9_jiti@2.4.2_terser@5.44.0_yaml@2.8.1/node_modules/[4mvite[24m/dist/node/chunks/dep-M_KD0XSK.js:28609:11) {
-  code: [32m'ERR_SOCKET_BAD_PORT'[39m
-}
-
-Node.js v22.13.0
