@@ -19,9 +19,11 @@ pnpm dlx shadcn@latest add dialog
 ## Доступные компоненты
 
 ### Основные
+
 - button, card, input, label, form, dialog, select, textarea
 
 ### Дополнительные
+
 - checkbox, radio-group, switch, tabs, table, toast, tooltip
 - popover, dropdown-menu, navigation-menu, sheet, alert, alert-dialog
 - badge, avatar, skeleton, progress, slider, separator
@@ -41,7 +43,7 @@ pnpm dlx shadcn@latest add dialog
 1. 📁 Переместите файлы из корня проекта в `src/components/ui/`
 2. 📝 Добавьте экспорт в `src/index.ts`:
    ```ts
-   export * from './components/ui/new-component';
+   export * from './components/ui/new-component'
    ```
 
 ### Дополнительно
@@ -58,9 +60,7 @@ export function MyComponent() {
   return (
     <Card>
       <Button>Click me</Button>
-      <Dialog>
-        {/* Dialog content */}
-      </Dialog>
+      <Dialog>{/* Dialog content */}</Dialog>
     </Card>
   )
 }

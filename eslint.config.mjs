@@ -8,7 +8,21 @@ import importPlugin from 'eslint-plugin-import'
 import pluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 
 export default tseslint.config(
-  { ignores: ['dist', 'coverage'] },
+  {
+    ignores: [
+      'dist',
+      'coverage',
+      '.nx',
+      'node_modules',
+      'storybook-static',
+      '**/*.d.ts',
+      '**/dist/**',
+      '**/.nx/**',
+      '**/node_modules/**',
+      '**/coverage/**',
+      '**/storybook-static/**',
+    ],
+  },
   {
     files: ['**/*.{ts,tsx}'],
     plugins: {

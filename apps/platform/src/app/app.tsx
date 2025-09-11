@@ -1,9 +1,7 @@
-import { i18n } from '@artelonline/shared'
 import { Routes, Route } from 'react-router-dom'
 import { HomePage, AboutPage, DashboardPage } from '../pages'
 
-// Инициализация i18n
-i18n
+// i18n инициализируется автоматически при импорте shared пакета
 
 export function App() {
   return (
