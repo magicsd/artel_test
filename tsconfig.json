@@ -13,19 +13,10 @@
       "path": "./packages/config"
     },
     {
-      "path": "./apps/platform-e2e"
-    },
-    {
       "path": "./apps/platform"
     },
     {
-      "path": "./apps/telegram-e2e"
-    },
-    {
       "path": "./apps/telegram"
-    },
-    {
-      "path": "./apps/marketing-e2e"
     },
     {
       "path": "./apps/marketing"

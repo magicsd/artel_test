@@ -279,15 +279,9 @@ importers:
 
   apps/marketing: {}
 
-  apps/marketing-e2e: {}
-
   apps/platform: {}
 
-  apps/platform-e2e: {}
-
   apps/telegram: {}
-
-  apps/telegram-e2e: {}
 
   packages/config: {}
 
