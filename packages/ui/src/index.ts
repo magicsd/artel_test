@@ -23,6 +23,3 @@ export * from './components/theme-toggle'
 
 // Utilities
 export * from './lib/utils'
-
-// Styles
-// export './globals.css';
