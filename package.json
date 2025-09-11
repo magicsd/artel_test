@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "prepare": "husky",
-    "add:ui": "cd packages/ui && pnpm dlx shadcn@latest add"
+    "add:ui": "cd packages/ui && pnpm run add"
   },
   "engines": {
     "node": ">=22.14.0",
