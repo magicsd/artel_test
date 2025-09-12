@@ -53,7 +53,6 @@ export function LoginPage() {
   return (
     <div className="bg-foreground/5 flex min-h-screen items-center justify-center p-4">
       <div className="w-full max-w-md">
-        {/* Логотип */}
         <div className="mb-8 flex justify-center">
           <img
             className="w-72 sm:w-80"
