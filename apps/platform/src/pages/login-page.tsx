@@ -1,3 +1,4 @@
+import { useLogin } from '@artelonline/shared'
 import {
   Button,
   Card,
@@ -11,13 +12,13 @@ import {
 import { Eye, EyeOff, Send } from 'lucide-react'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export function LoginPage() {
   const { t } = useTranslation('auth')
   const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
-    login: '',
+    username: '',
     password: '',
   })
 
@@ -29,10 +30,16 @@ export function LoginPage() {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const { mutateAsync } = useLogin()
+
+  const navigate = useNavigate()
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     // Здесь будет логика авторизации
     console.log('Login data:', formData)
+    await mutateAsync(formData)
+    navigate('/')
   }
 
   const handleTelegramLogin = () => {
@@ -83,10 +90,10 @@ export function LoginPage() {
                 <Label htmlFor="login">{t('login.loginLabel')}</Label>
                 <div className="relative">
                   <Input
-                    id="login"
-                    name="login"
+                    id="username"
+                    name="username"
                     type="text"
-                    value={formData.login}
+                    value={formData.username}
                     onChange={handleInputChange}
                     className="pr-10"
                     required

@@ -10,7 +10,6 @@ export interface ApiResponse<T = any> {
   errors?: Record<string, string[]>
 }
 
-
 export class ApiClient {
   private baseURL: string
   private defaultHeaders: Record<string, string>
@@ -141,10 +140,10 @@ export class ApiClient {
     this.baseURL = baseURL.replace(/\/$/, '')
   }
 }
-
+console.log('---import.meta.env.VITE_API_URL', import.meta.env.VITE_API_URL)
 // Default API client instance
 export const apiClient = new ApiClient(
-  import.meta.env.VITE_API_URL ?? 'http://localhost:3001/api',
+  import.meta.env.VITE_API_URL ?? 'http://localhost:8000/api/v1/',
 )
 
 // Custom error class

@@ -163,7 +163,7 @@ export function useUpload<TData = any>(
 export function useAuth() {
   return useQuery({
     queryKey: queryKeys.auth.user(),
-    queryFn: () => apiClient.get('/auth/me'),
+    queryFn: () => apiClient.get('/auth/me/'),
     retry: false,
     staleTime: Infinity, // Don't refetch auth data automatically
   })
@@ -173,9 +173,9 @@ export function useLogin() {
   return useMutation<
     ApiResponse<{ token?: string }>,
     ApiError,
-    { email: string; password: string }
+    { username: string; password: string }
   >({
-    mutationFn: (credentials) => apiClient.post<{ token?: string }>('/auth/login', credentials),
+    mutationFn: (credentials) => apiClient.post<{ token?: string }>('/auth/login/', credentials),
     onSuccess: (data) => {
       // Set auth token
       const token = data.data?.token
@@ -190,7 +190,7 @@ export function useLogin() {
 
 export function useLogout() {
   return useMutation({
-    mutationFn: () => apiClient.post('/auth/logout'),
+    mutationFn: () => apiClient.post('/auth/logout/'),
     onSuccess: () => {
       // Clear auth token
       apiClient.setAuthToken(null)
@@ -203,7 +203,7 @@ export function useLogout() {
 export function useRegister() {
   return useMutation({
     mutationFn: (userData: { email: string; password: string; name: string; [key: string]: any }) =>
-      apiClient.post('/auth/register', userData),
+      apiClient.post('/auth/register/', userData),
   })
 }
 
