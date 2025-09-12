@@ -76,13 +76,24 @@ export function RegisterPage() {
   const years = Array.from({ length: 100 }, (_, i) => currentYear - i)
 
   return (
-    <div className="min-h-screen bg-gray-50 px-4 py-8">
+    <div className="bg-foreground/5 min-h-screen px-4 py-8">
       <div className="mx-auto max-w-2xl">
-        <div className="mb-4">
-          <Link to="/login" className="link inline-flex items-center gap-2 text-sm">
-            <ArrowLeft className="size-4" />
-            {t('register.backToLogin')}
-          </Link>
+        <div className="mb-4 flex items-center justify-between">
+          <Button variant="link" asChild>
+            <Link to="/login">
+              <ArrowLeft className="size-4" />
+              {t('register.backToLogin')}
+            </Link>
+          </Button>
+          <div className="flex justify-center">
+            <Link to="/">
+              <img
+                className="w-32 sm:w-40"
+                src="https://lk.artelonline.ru/cdn/img/logo/artelonline.svg"
+                alt=""
+              />
+            </Link>
+          </div>
         </div>
 
         <Card>
@@ -90,10 +101,10 @@ export function RegisterPage() {
             <CardTitle className="text-xl">{t('register.title')}</CardTitle>
             <CardDescription>{t('register.subtitle')}</CardDescription>
           </CardHeader>
-          <CardContent className="p-8">
+          <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Имя аккаунта */}
-              <div className="grid grid-cols-2 items-end gap-4">
+              <div className="grid items-end gap-4 md:grid-cols-2">
                 <div className="grid gap-2">
                   <Label htmlFor="accountName">{t('register.accountName')}</Label>
                   <Input
@@ -227,7 +238,7 @@ export function RegisterPage() {
                     </SelectContent>
                   </Select>
                 </div>
-                <p className="mt-2 text-sm text-gray-600">{t('register.ageRequirement')}</p>
+                <p className="text-muted-foreground mt-2 text-sm">{t('register.ageRequirement')}</p>
               </div>
 
               {/* Email */}
@@ -246,8 +257,8 @@ export function RegisterPage() {
               </div>
 
               {/* Чекбоксы */}
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
+              <div className="grid gap-4">
+                <div className="flex items-start gap-3">
                   <Checkbox
                     id="agreeToTerms"
                     checked={formData.agreeToTerms}
@@ -256,24 +267,27 @@ export function RegisterPage() {
                     }
                     aria-required="true"
                   />
-                  <label htmlFor="agreeToTerms" className="cursor-pointer text-sm text-gray-700">
+                  <label
+                    htmlFor="agreeToTerms"
+                    className="text-muted-foreground cursor-pointer text-sm"
+                  >
                     {t('register.agreeToTerms')}{' '}
-                    <Link to="/privacy" className="text-primary hover:underline">
+                    <Link to="/privacy" className="link">
                       {t('register.privacyPolicy')}
                     </Link>{' '}
                     {t('register.and')}{' '}
-                    <Link to="/terms" className="text-primary hover:underline">
+                    <Link to="/terms" className="link">
                       {t('register.termsOfUse')}
                     </Link>
                     {t('register.consentText')}{' '}
-                    <Link to="/consent" className="text-primary hover:underline">
+                    <Link to="/consent" className="link">
                       {t('register.personalDataConsent')}
                     </Link>
                     .
                   </label>
                 </div>
 
-                <div className="flex items-start space-x-3">
+                <div className="flex items-start gap-3">
                   <Checkbox
                     id="registerOrganization"
                     checked={formData.registerOrganization}
@@ -286,7 +300,7 @@ export function RegisterPage() {
                   />
                   <label
                     htmlFor="registerOrganization"
-                    className="cursor-pointer text-sm text-gray-700"
+                    className="text-muted-foreground cursor-pointer text-sm"
                   >
                     {t('register.registerOrganization')}
                   </label>
