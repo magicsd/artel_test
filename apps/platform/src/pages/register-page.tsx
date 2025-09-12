@@ -7,8 +7,14 @@ import {
   CardTitle,
   Input,
   Label,
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+  Checkbox,
 } from '@artelonline/ui'
-import { ArrowLeft, Check } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
@@ -29,7 +35,7 @@ export function RegisterPage() {
     registerOrganization: false,
   })
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type } = e.target
     setFormData((prev) => ({
       ...prev,
@@ -173,48 +179,53 @@ export function RegisterPage() {
                   {t('register.birthDate')} <span className="text-red-500">*</span>
                 </Label>
                 <div className="grid grid-cols-3 gap-4">
-                  <select
-                    name="birthDay"
+                  <Select
                     value={formData.birthDay}
-                    onChange={handleInputChange}
-                    className="border-input bg-background ring-offset-background placeholder:text-muted-foreground focus-visible:ring-ring flex h-10 w-full rounded-md border px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
-                    required
+                    onValueChange={(v) => setFormData((prev) => ({ ...prev, birthDay: v }))}
                   >
-                    <option value="">{t('register.dayPlaceholder')}</option>
-                    {days.map((day) => (
-                      <option key={day} value={day}>
-                        {day}
-                      </option>
-                    ))}
-                  </select>
-                  <select
-                    name="birthMonth"
+                    <SelectTrigger>
+                      <SelectValue placeholder={t('register.dayPlaceholder')} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {days.map((day) => (
+                        <SelectItem key={day} value={String(day)}>
+                          {day}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+
+                  <Select
                     value={formData.birthMonth}
-                    onChange={handleInputChange}
-                    className="border-input bg-background ring-offset-background placeholder:text-muted-foreground focus-visible:ring-ring flex h-10 w-full rounded-md border px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
-                    required
+                    onValueChange={(v) => setFormData((prev) => ({ ...prev, birthMonth: v }))}
                   >
-                    <option value="">{t('register.monthPlaceholder')}</option>
-                    {months.map((month, index) => (
-                      <option key={month} value={index + 1}>
-                        {month}
-                      </option>
-                    ))}
-                  </select>
-                  <select
-                    name="birthYear"
+                    <SelectTrigger>
+                      <SelectValue placeholder={t('register.monthPlaceholder')} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {months.map((month, index) => (
+                        <SelectItem key={month} value={String(index + 1)}>
+                          {month}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+
+                  <Select
                     value={formData.birthYear}
-                    onChange={handleInputChange}
-                    className="border-input bg-background ring-offset-background placeholder:text-muted-foreground focus-visible:ring-ring flex h-10 w-full rounded-md border px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
-                    required
+                    onValueChange={(v) => setFormData((prev) => ({ ...prev, birthYear: v }))}
                   >
-                    <option value="">{t('register.yearPlaceholder')}</option>
-                    {years.map((year) => (
-                      <option key={year} value={year}>
-                        {year}
-                      </option>
-                    ))}
-                  </select>
+                    <SelectTrigger>
+                      <SelectValue placeholder={t('register.yearPlaceholder')} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {years.map((year) => (
+                        <SelectItem key={year} value={String(year)}>
+                          {year}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
                 <p className="mt-2 text-sm text-gray-600">{t('register.ageRequirement')}</p>
               </div>
@@ -237,29 +248,14 @@ export function RegisterPage() {
               {/* Чекбоксы */}
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
-                  <div className="relative">
-                    <input
-                      type="checkbox"
-                      id="agreeToTerms"
-                      name="agreeToTerms"
-                      checked={formData.agreeToTerms}
-                      onChange={handleInputChange}
-                      className="sr-only"
-                      required
-                    />
-                    <div
-                      className={`flex h-5 w-5 cursor-pointer items-center justify-center rounded border-2 ${
-                        formData.agreeToTerms
-                          ? 'border-primary bg-primary'
-                          : 'border-gray-300 bg-white hover:border-gray-400'
-                      }`}
-                      onClick={() =>
-                        setFormData((prev) => ({ ...prev, agreeToTerms: !prev.agreeToTerms }))
-                      }
-                    >
-                      {formData.agreeToTerms && <Check className="h-3 w-3 text-white" />}
-                    </div>
-                  </div>
+                  <Checkbox
+                    id="agreeToTerms"
+                    checked={formData.agreeToTerms}
+                    onCheckedChange={(checked) =>
+                      setFormData((prev) => ({ ...prev, agreeToTerms: Boolean(checked) }))
+                    }
+                    aria-required="true"
+                  />
                   <label htmlFor="agreeToTerms" className="cursor-pointer text-sm text-gray-700">
                     {t('register.agreeToTerms')}{' '}
                     <Link to="/privacy" className="text-primary hover:underline">
@@ -278,31 +274,16 @@ export function RegisterPage() {
                 </div>
 
                 <div className="flex items-start space-x-3">
-                  <div className="relative">
-                    <input
-                      type="checkbox"
-                      id="registerOrganization"
-                      name="registerOrganization"
-                      checked={formData.registerOrganization}
-                      onChange={handleInputChange}
-                      className="sr-only"
-                    />
-                    <div
-                      className={`flex h-5 w-5 cursor-pointer items-center justify-center rounded border-2 ${
-                        formData.registerOrganization
-                          ? 'border-primary bg-primary'
-                          : 'border-gray-300 bg-white hover:border-gray-400'
-                      }`}
-                      onClick={() =>
-                        setFormData((prev) => ({
-                          ...prev,
-                          registerOrganization: !prev.registerOrganization,
-                        }))
-                      }
-                    >
-                      {formData.registerOrganization && <Check className="h-3 w-3 text-white" />}
-                    </div>
-                  </div>
+                  <Checkbox
+                    id="registerOrganization"
+                    checked={formData.registerOrganization}
+                    onCheckedChange={(checked) =>
+                      setFormData((prev) => ({
+                        ...prev,
+                        registerOrganization: Boolean(checked),
+                      }))
+                    }
+                  />
                   <label
                     htmlFor="registerOrganization"
                     className="cursor-pointer text-sm text-gray-700"
