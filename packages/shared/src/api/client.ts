@@ -48,7 +48,7 @@ export class ApiClient {
 
       if (!response.ok) {
         throw new ApiError({
-          message: data.message || `HTTP ${response.status}`,
+          message: data.message || data.detail || `HTTP ${response.status}`,
           status: response.status,
           errors: data.errors,
         })
@@ -140,11 +140,9 @@ export class ApiClient {
     this.baseURL = baseURL.replace(/\/$/, '')
   }
 }
-console.log('---import.meta.env.VITE_API_URL', import.meta.env.VITE_API_URL)
+
 // Default API client instance
-export const apiClient = new ApiClient(
-  import.meta.env.VITE_API_URL ?? 'http://localhost:8000/api/v1/',
-)
+export const apiClient = new ApiClient(import.meta.env.VITE_API_URL ?? '')
 
 // Custom error class
 class ApiError extends Error {

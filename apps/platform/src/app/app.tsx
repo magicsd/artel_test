@@ -1,4 +1,5 @@
 import { QueryProvider, ThemeProvider } from '@artelonline/shared'
+import { Toaster } from '@artelonline/ui'
 import { Routes, Route } from 'react-router-dom'
 import { Layout } from '../components'
 import { HomePage, AboutPage, DashboardPage, LoginPage, RegisterPage } from '../pages'
@@ -19,6 +20,7 @@ export function App() {
             <Route path="dashboard" element={<DashboardPage />} />
           </Route>
         </Routes>
+        <Toaster richColors position="bottom-right" />
       </ThemeProvider>
     </QueryProvider>
   )

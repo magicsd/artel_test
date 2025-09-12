@@ -5,6 +5,7 @@ import dts from 'vite-plugin-dts'
 
 export default defineConfig(() => ({
   root: __dirname,
+  envDir: path.resolve(__dirname, '../../'),
   cacheDir: '../../node_modules/.vite/packages/config',
   plugins: [
     dts({

@@ -1,4 +1,5 @@
 /// <reference types='vitest' />
+import * as path from 'path'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
@@ -6,6 +7,7 @@ export default defineConfig(async () => {
   const { default: tailwindcss } = await import('@tailwindcss/vite')
   return {
     root: __dirname,
+    envDir: path.resolve(__dirname, '../../'),
     cacheDir: '../../node_modules/.vite/apps/marketing',
     server: {
       port: 4202,

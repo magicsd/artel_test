@@ -8,6 +8,7 @@ import {
   CardTitle,
   Input,
   Label,
+  toast,
 } from '@artelonline/ui'
 import { Eye, EyeOff, Send } from 'lucide-react'
 import React, { useState } from 'react'
@@ -38,8 +39,12 @@ export function LoginPage() {
     e.preventDefault()
     // Здесь будет логика авторизации
     console.log('Login data:', formData)
-    await mutateAsync(formData)
-    navigate('/')
+    try {
+      await mutateAsync(formData)
+      navigate('/')
+    } catch (error: any) {
+      toast.error(error.message)
+    }
   }
 
   const handleTelegramLogin = () => {

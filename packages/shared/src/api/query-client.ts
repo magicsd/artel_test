@@ -3,9 +3,8 @@
  * Centralized query client setup with default options and error handling
  */
 
-import { QueryClient, DefaultOptions } from '@tanstack/react-query'
+import { QueryClient, type DefaultOptions } from '@tanstack/react-query'
 import { ApiError } from './client.js'
-
 // Default query options
 const defaultQueryOptions: DefaultOptions = {
   queries: {
