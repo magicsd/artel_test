@@ -120,3 +120,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+@utility link {
+  @apply text-primary underline-offset-4 hover:underline;
+}
+
+@utility link-underline {
+  @apply text-primary underline underline-offset-4 hover:no-underline;
+}

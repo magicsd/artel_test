@@ -37,8 +37,6 @@ export function LoginPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Здесь будет логика авторизации
-    console.log('Login data:', formData)
     try {
       await mutateAsync(formData)
       navigate('/')
@@ -53,70 +51,52 @@ export function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100 p-4">
+    <div className="bg-foreground/5 flex min-h-screen items-center justify-center p-4">
       <div className="w-full max-w-md">
         {/* Логотип */}
-        <div className="mb-8 text-center">
-          <div className="bg-primary mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full">
-            <div className="text-2xl font-bold text-white">А</div>
-          </div>
-          <h1 className="text-primary text-2xl font-bold">АртельОнлайн</h1>
+        <div className="mb-8 flex justify-center">
+          <img
+            className="w-72 sm:w-80"
+            src="https://lk.artelonline.ru/cdn/img/logo/artelonline.svg"
+            alt=""
+          />
         </div>
 
-        <Card className="shadow-lg">
+        <Card>
           <CardHeader className="text-center">
-            <CardTitle className="text-xl font-semibold">{t('login.title')}</CardTitle>
-            <CardDescription className="text-gray-600">{t('login.subtitle')}</CardDescription>
+            <CardTitle className="text-xl">{t('login.title')}</CardTitle>
+            <CardDescription>{t('login.subtitle')}</CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
-            {/* Кнопка входа через Telegram */}
-            <Button
-              onClick={handleTelegramLogin}
-              variant="outline"
-              className="h-12 w-full text-base font-medium"
-            >
-              <Send className="mr-2 h-5 w-5" />
-              {t('login.telegramButton')}
-            </Button>
+            <div className="grid gap-4">
+              <Button onClick={handleTelegramLogin} variant="outline">
+                <Send />
+                {t('login.telegramButton')}
+              </Button>
 
-            {/* Разделитель */}
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-300" />
-              </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="bg-white px-2 text-gray-500">{t('login.or')}</span>
+              <div className="after:border-border relative text-center after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
+                <span className="bg-card text-muted-foreground relative z-10 px-2 text-sm">
+                  {t('login.or')}
+                </span>
               </div>
             </div>
 
-            {/* Форма входа */}
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="space-y-2">
+            <form onSubmit={handleSubmit} className="grid gap-4">
+              <div className="grid gap-2">
                 <Label htmlFor="login">{t('login.loginLabel')}</Label>
-                <div className="relative">
-                  <Input
-                    id="username"
-                    name="username"
-                    type="text"
-                    value={formData.username}
-                    onChange={handleInputChange}
-                    className="pr-10"
-                    required
-                  />
-                  <div className="absolute inset-y-0 right-0 flex items-center pr-3">
-                    <div className="flex h-6 w-6 items-center justify-center rounded bg-red-500">
-                      <div className="h-2 w-2 rounded-full bg-white" />
-                      <div className="ml-0.5 h-2 w-2 rounded-full bg-white" />
-                      <div className="ml-0.5 h-2 w-2 rounded-full bg-white" />
-                    </div>
-                  </div>
-                </div>
+                <Input
+                  id="username"
+                  name="username"
+                  value={formData.username}
+                  onChange={handleInputChange}
+                  required
+                />
               </div>
 
-              <div className="space-y-2">
+              <div className="grid gap-2">
                 <div className="flex items-center justify-between">
                   <Label htmlFor="password">{t('login.passwordLabel')}</Label>
-                  <Link to="/forgot-password" className="text-primary text-sm hover:underline">
+                  <Link to="/forgot-password" className="link text-sm">
                     {t('login.forgotPassword')}
                   </Link>
                 </div>
@@ -133,13 +113,9 @@ export function LoginPage() {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute inset-y-0 right-0 flex items-center pr-3"
+                    className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400"
                   >
-                    {showPassword ? (
-                      <EyeOff className="h-5 w-5 text-gray-400" />
-                    ) : (
-                      <Eye className="h-5 w-5 text-gray-400" />
-                    )}
+                    {showPassword ? <EyeOff className="size-5" /> : <Eye className="size-5" />}
                   </button>
                 </div>
               </div>
@@ -147,22 +123,22 @@ export function LoginPage() {
               <Button type="submit">{t('login.loginButton')}</Button>
             </form>
 
-            {/* Ссылка на регистрацию */}
-            <div className="text-center">
-              <span className="text-gray-600">{t('login.noAccount')} </span>
-              <Link to="/register" className="text-primary font-medium hover:underline">
+            <div className="text-center text-sm">
+              <span className="text-neutral-500 dark:text-neutral-400">
+                {t('login.noAccount')}{' '}
+              </span>
+              <Link to="/register" className="link-underline">
                 {t('login.createAccount')}
               </Link>
             </div>
           </CardContent>
         </Card>
 
-        {/* Соглашение */}
-        <div className="mt-6 text-center text-sm text-gray-500">
-          {t('login.agreement')} <br />
-          <Link to="/terms" className="text-primary hover:underline">
+        <div className="text-muted-foreground mt-4 text-center text-xs text-balance">
+          {t('login.agreement')}{' '}
+          <a href="/cdn/files/Oferta_ArtelOnline.pdf" target="_blank" className="link">
             {t('login.offerAgreement')}
-          </Link>
+          </a>
           .
         </div>
       </div>
