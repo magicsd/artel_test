@@ -1,4 +1,13 @@
-import { Button, Card, CardContent, Input, Label } from '@artelonline/ui'
+import {
+  Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  Input,
+  Label,
+} from '@artelonline/ui'
 import { ArrowLeft, Check } from 'lucide-react'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -41,11 +50,6 @@ export function RegisterPage() {
     console.log('Registration data:', formData)
   }
 
-  const checkAccountName = () => {
-    // Здесь будет логика проверки имени аккаунта
-    console.log('Checking account name:', formData.accountName)
-  }
-
   // Генерация массивов для селектов
   const days = Array.from({ length: 31 }, (_, i) => i + 1)
   const months = [
@@ -68,27 +72,24 @@ export function RegisterPage() {
   return (
     <div className="min-h-screen bg-gray-50 px-4 py-8">
       <div className="mx-auto max-w-2xl">
-        {/* Заголовок */}
-        <div className="mb-8">
-          <Link
-            to="/login"
-            className="mb-4 inline-flex items-center text-gray-600 hover:text-gray-800"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
+        <div className="mb-4">
+          <Link to="/login" className="link inline-flex items-center gap-2 text-sm">
+            <ArrowLeft className="size-4" />
             {t('register.backToLogin')}
           </Link>
-          <h1 className="text-3xl font-bold text-gray-900">{t('register.title')}</h1>
         </div>
 
-        <Card className="shadow-lg">
+        <Card>
+          <CardHeader className="text-center">
+            <CardTitle className="text-xl">{t('register.title')}</CardTitle>
+            <CardDescription>{t('register.subtitle')}</CardDescription>
+          </CardHeader>
           <CardContent className="p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Имя аккаунта */}
-              <div className="grid grid-cols-1 items-end gap-4 md:grid-cols-4">
-                <div className="md:col-span-3">
-                  <Label htmlFor="accountName">
-                    {t('register.accountName')} <span className="text-red-500">*</span>
-                  </Label>
+              <div className="grid grid-cols-2 items-end gap-4">
+                <div className="grid gap-2">
+                  <Label htmlFor="accountName">{t('register.accountName')}</Label>
                   <Input
                     id="accountName"
                     name="accountName"
@@ -98,18 +99,34 @@ export function RegisterPage() {
                     required
                   />
                 </div>
-                <Button
-                  type="button"
-                  onClick={checkAccountName}
-                  variant="secondary"
-                  className="h-10"
-                >
-                  {t('register.checkButton')}
-                </Button>
+                {/* Пол */}
+                <div className="grid gap-2">
+                  <Label>
+                    {t('register.gender')} <span className="text-red-500">*</span>
+                  </Label>
+                  <div className="flex gap-2">
+                    <Button
+                      type="button"
+                      variant={formData.gender === 'male' ? 'default' : 'outline'}
+                      onClick={() => handleGenderSelect('male')}
+                      className="flex-1"
+                    >
+                      {t('register.male')}
+                    </Button>
+                    <Button
+                      type="button"
+                      variant={formData.gender === 'female' ? 'default' : 'outline'}
+                      onClick={() => handleGenderSelect('female')}
+                      className="flex-1"
+                    >
+                      {t('register.female')}
+                    </Button>
+                  </div>
+                </div>
               </div>
 
               {/* Фамилия */}
-              <div>
+              <div className="grid gap-2">
                 <Label htmlFor="lastName">
                   {t('register.lastName')} <span className="text-red-500">*</span>
                 </Label>
@@ -124,7 +141,7 @@ export function RegisterPage() {
               </div>
 
               {/* Имя */}
-              <div>
+              <div className="grid gap-2">
                 <Label htmlFor="firstName">
                   {t('register.firstName')} <span className="text-red-500">*</span>
                 </Label>
@@ -139,7 +156,7 @@ export function RegisterPage() {
               </div>
 
               {/* Отчество */}
-              <div>
+              <div className="grid gap-2">
                 <Label htmlFor="middleName">{t('register.middleName')}</Label>
                 <Input
                   id="middleName"
@@ -151,11 +168,11 @@ export function RegisterPage() {
               </div>
 
               {/* Дата рождения */}
-              <div>
+              <div className="grid gap-2">
                 <Label>
                   {t('register.birthDate')} <span className="text-red-500">*</span>
                 </Label>
-                <div className="mt-2 grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-3 gap-4">
                   <select
                     name="birthDay"
                     value={formData.birthDay}
@@ -202,33 +219,8 @@ export function RegisterPage() {
                 <p className="mt-2 text-sm text-gray-600">{t('register.ageRequirement')}</p>
               </div>
 
-              {/* Пол */}
-              <div>
-                <Label>
-                  {t('register.gender')} <span className="text-red-500">*</span>
-                </Label>
-                <div className="mt-2 flex gap-4">
-                  <Button
-                    type="button"
-                    variant={formData.gender === 'male' ? 'default' : 'outline'}
-                    onClick={() => handleGenderSelect('male')}
-                    className="flex-1"
-                  >
-                    {t('register.male')}
-                  </Button>
-                  <Button
-                    type="button"
-                    variant={formData.gender === 'female' ? 'default' : 'outline'}
-                    onClick={() => handleGenderSelect('female')}
-                    className="flex-1"
-                  >
-                    {t('register.female')}
-                  </Button>
-                </div>
-              </div>
-
               {/* Email */}
-              <div>
+              <div className="grid gap-2">
                 <Label htmlFor="email">
                   {t('register.email')} <span className="text-red-500">*</span>
                 </Label>
@@ -322,11 +314,7 @@ export function RegisterPage() {
 
               {/* Кнопка регистрации */}
               <div className="flex justify-end">
-                <Button
-                  type="submit"
-                  className="bg-yellow-600 px-8 py-3 font-medium text-white hover:bg-yellow-700"
-                  disabled={!formData.agreeToTerms}
-                >
+                <Button type="submit" disabled={!formData.agreeToTerms}>
                   {t('register.registerButton')}
                 </Button>
               </div>

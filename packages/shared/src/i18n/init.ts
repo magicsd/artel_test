@@ -208,7 +208,7 @@ i18n
       loadPath: '/locales/{{lng}}/{{ns}}.json',
     },
 
-    resources, // Add fallback resources
+    // resources, // Add fallback resources
 
     react: {
       useSuspense: false,
