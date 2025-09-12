@@ -54,11 +54,13 @@ export function LoginPage() {
     <div className="bg-foreground/5 flex min-h-screen items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="mb-8 flex justify-center">
-          <img
-            className="w-72 sm:w-80"
-            src="https://lk.artelonline.ru/cdn/img/logo/artelonline.svg"
-            alt=""
-          />
+          <Link to="/">
+            <img
+              className="w-72 sm:w-80"
+              src="https://lk.artelonline.ru/cdn/img/logo/artelonline.svg"
+              alt=""
+            />
+          </Link>
         </div>
 
         <Card>
