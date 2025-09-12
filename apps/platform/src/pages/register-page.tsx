@@ -87,7 +87,7 @@ export function RegisterPage() {
               <div className="grid grid-cols-1 items-end gap-4 md:grid-cols-4">
                 <div className="md:col-span-3">
                   <Label htmlFor="accountName">
-                    Имя аккаунта <span className="text-red-500">*</span>
+                    {t('register.accountName')} <span className="text-red-500">*</span>
                   </Label>
                   <Input
                     id="accountName"
@@ -104,14 +104,14 @@ export function RegisterPage() {
                   variant="secondary"
                   className="h-10"
                 >
-                  Проверить
+                  {t('register.checkButton')}
                 </Button>
               </div>
 
               {/* Фамилия */}
               <div>
                 <Label htmlFor="lastName">
-                  Фамилия <span className="text-red-500">*</span>
+                  {t('register.lastName')} <span className="text-red-500">*</span>
                 </Label>
                 <Input
                   id="lastName"
@@ -126,7 +126,7 @@ export function RegisterPage() {
               {/* Имя */}
               <div>
                 <Label htmlFor="firstName">
-                  Имя <span className="text-red-500">*</span>
+                  {t('register.firstName')} <span className="text-red-500">*</span>
                 </Label>
                 <Input
                   id="firstName"
@@ -140,7 +140,7 @@ export function RegisterPage() {
 
               {/* Отчество */}
               <div>
-                <Label htmlFor="middleName">Отчество</Label>
+                <Label htmlFor="middleName">{t('register.middleName')}</Label>
                 <Input
                   id="middleName"
                   name="middleName"
@@ -153,7 +153,7 @@ export function RegisterPage() {
               {/* Дата рождения */}
               <div>
                 <Label>
-                  Дата рождения <span className="text-red-500">*</span>
+                  {t('register.birthDate')} <span className="text-red-500">*</span>
                 </Label>
                 <div className="mt-2 grid grid-cols-3 gap-4">
                   <select
@@ -163,7 +163,7 @@ export function RegisterPage() {
                     className="border-input bg-background ring-offset-background placeholder:text-muted-foreground focus-visible:ring-ring flex h-10 w-full rounded-md border px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                     required
                   >
-                    <option value="">день</option>
+                    <option value="">{t('register.dayPlaceholder')}</option>
                     {days.map((day) => (
                       <option key={day} value={day}>
                         {day}
@@ -177,7 +177,7 @@ export function RegisterPage() {
                     className="border-input bg-background ring-offset-background placeholder:text-muted-foreground focus-visible:ring-ring flex h-10 w-full rounded-md border px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                     required
                   >
-                    <option value="">месяц</option>
+                    <option value="">{t('register.monthPlaceholder')}</option>
                     {months.map((month, index) => (
                       <option key={month} value={index + 1}>
                         {month}
@@ -191,7 +191,7 @@ export function RegisterPage() {
                     className="border-input bg-background ring-offset-background placeholder:text-muted-foreground focus-visible:ring-ring flex h-10 w-full rounded-md border px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                     required
                   >
-                    <option value="">год</option>
+                    <option value="">{t('register.yearPlaceholder')}</option>
                     {years.map((year) => (
                       <option key={year} value={year}>
                         {year}
@@ -199,13 +199,13 @@ export function RegisterPage() {
                     ))}
                   </select>
                 </div>
-                <p className="mt-2 text-sm text-gray-600">Вам должно исполниться 16 лет</p>
+                <p className="mt-2 text-sm text-gray-600">{t('register.ageRequirement')}</p>
               </div>
 
               {/* Пол */}
               <div>
                 <Label>
-                  Пол <span className="text-red-500">*</span>
+                  {t('register.gender')} <span className="text-red-500">*</span>
                 </Label>
                 <div className="mt-2 flex gap-4">
                   <Button
@@ -214,7 +214,7 @@ export function RegisterPage() {
                     onClick={() => handleGenderSelect('male')}
                     className="flex-1"
                   >
-                    мужской
+                    {t('register.male')}
                   </Button>
                   <Button
                     type="button"
@@ -222,7 +222,7 @@ export function RegisterPage() {
                     onClick={() => handleGenderSelect('female')}
                     className="flex-1"
                   >
-                    женский
+                    {t('register.female')}
                   </Button>
                 </div>
               </div>
@@ -230,7 +230,7 @@ export function RegisterPage() {
               {/* Email */}
               <div>
                 <Label htmlFor="email">
-                  Адрес электронной почты <span className="text-red-500">*</span>
+                  {t('register.email')} <span className="text-red-500">*</span>
                 </Label>
                 <Input
                   id="email"
@@ -269,17 +269,17 @@ export function RegisterPage() {
                     </div>
                   </div>
                   <label htmlFor="agreeToTerms" className="cursor-pointer text-sm text-gray-700">
-                    Соглашаюсь с{' '}
+                    {t('register.agreeToTerms')}{' '}
                     <Link to="/privacy" className="text-primary hover:underline">
-                      условиями конфиденциальности
+                      {t('register.privacyPolicy')}
                     </Link>{' '}
-                    и{' '}
+                    {t('register.and')}{' '}
                     <Link to="/terms" className="text-primary hover:underline">
-                      условиями пользования сайта
+                      {t('register.termsOfUse')}
                     </Link>
-                    , а также даю{' '}
+                    {t('register.consentText')}{' '}
                     <Link to="/consent" className="text-primary hover:underline">
-                      добровольное согласие на использование моих персональных данных
+                      {t('register.personalDataConsent')}
                     </Link>
                     .
                   </label>
@@ -315,7 +315,7 @@ export function RegisterPage() {
                     htmlFor="registerOrganization"
                     className="cursor-pointer text-sm text-gray-700"
                   >
-                    Также зарегистрировать свою организацию
+                    {t('register.registerOrganization')}
                   </label>
                 </div>
               </div>
@@ -327,7 +327,7 @@ export function RegisterPage() {
                   className="bg-yellow-600 px-8 py-3 font-medium text-white hover:bg-yellow-700"
                   disabled={!formData.agreeToTerms}
                 >
-                  Зарегистрироваться
+                  {t('register.registerButton')}
                 </Button>
               </div>
             </form>
