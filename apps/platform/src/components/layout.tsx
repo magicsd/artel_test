@@ -115,12 +115,6 @@ export function Layout() {
                     {t('navigation.login')}
                   </Link>
                 </Button>
-                <Button size="sm" asChild>
-                  <Link to="/register">
-                    <UserPlus />
-                    {t('navigation.register')}
-                  </Link>
-                </Button>
               </div>
             )}
 
