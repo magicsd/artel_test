@@ -45,6 +45,7 @@ export default defineConfig(async () => {
       watch: false,
       globals: true,
       environment: 'jsdom',
+      setupFiles: ['../../packages/config/src/lib/test-setup.ts'],
       include: ['{src,tests}/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
       reporters: ['default'],
       coverage: {

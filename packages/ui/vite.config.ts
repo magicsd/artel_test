@@ -21,6 +21,11 @@ export default defineConfig(async () => {
     ssr: {
       noExternal: ['@tailwindcss/vite'],
     },
+    resolve: {
+      alias: {
+        '@artelonline/config': path.resolve(__dirname, '../../packages/config/src'),
+      },
+    },
     // Uncomment this if you are using workers.
     // worker: {
     //  plugins: [ nxViteTsPaths() ],
@@ -53,6 +58,7 @@ export default defineConfig(async () => {
       watch: false,
       globals: true,
       environment: 'jsdom',
+      setupFiles: ['../../packages/config/src/lib/test-setup.ts'],
       include: ['{src,tests}/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
       reporters: ['default'],
       coverage: {
