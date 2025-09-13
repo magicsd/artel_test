@@ -160,8 +160,6 @@ function CalendarDayButton({
   const ref = React.useRef<HTMLButtonElement>(null)
   React.useEffect(() => {
     if (modifiers.focused) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
       ref.current?.focus()
     }
   }, [modifiers.focused])
