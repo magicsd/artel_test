@@ -9,6 +9,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
+  DatePicker,
 } from '@artelonline/ui'
 import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -35,6 +36,15 @@ export function BirthdayField() {
     t('months.november'),
     t('months.december'),
   ]
+
+  return (
+    <div className="grid gap-2">
+      <Label>
+        {t('register.birthDate')} <span className="text-red-500">*</span>
+      </Label>
+      <DatePicker />
+    </div>
+  )
 
   return (
     <div className="grid gap-2">

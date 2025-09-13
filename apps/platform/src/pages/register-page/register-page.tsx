@@ -78,7 +78,6 @@ export function RegisterPage() {
                 <div className="grid items-start gap-4 md:grid-cols-3">
                   <AccountNameField />
                   <EmailField />
-                  <GenderField />
                 </div>
 
                 <div className="grid gap-4 md:grid-cols-3">
@@ -87,7 +86,10 @@ export function RegisterPage() {
                   <MiddleNameField />
                 </div>
 
-                <BirthdayField />
+                <div className="grid gap-4 md:grid-cols-3">
+                  <BirthdayField />
+                  <GenderField />
+                </div>
 
                 <div className="grid gap-4">
                   <TermsAgreeField />
