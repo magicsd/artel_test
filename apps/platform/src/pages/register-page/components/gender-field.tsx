@@ -1,4 +1,5 @@
 import { Button, FormField, FormItem, FormMessage, Label } from '@artelonline/ui'
+import clsx from 'clsx'
 import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
@@ -11,13 +12,18 @@ export function GenderField() {
     <FormField
       control={control}
       name="gender"
-      render={({ field }) => (
+      render={({ field, fieldState }) => (
         <FormItem>
           <Label>
             {t('register.gender')} <span className="text-red-500">*</span>
           </Label>
-          <div className="flex gap-2">
+          <div
+            className={clsx('bg-foreground/5 flex gap-1 rounded-lg p-0.5 transition-colors', {
+              'ring ring-red-500': fieldState.error,
+            })}
+          >
             <Button
+              size="sm"
               type="button"
               variant={field.value === 'male' ? 'default' : 'outline'}
               onClick={() => field.onChange('male')}
@@ -26,6 +32,7 @@ export function GenderField() {
               {t('register.male')}
             </Button>
             <Button
+              size="sm"
               type="button"
               variant={field.value === 'female' ? 'default' : 'outline'}
               onClick={() => field.onChange('female')}

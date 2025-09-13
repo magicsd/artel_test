@@ -16,7 +16,7 @@ import { useTranslation } from 'react-i18next'
 import { Link, useNavigate } from 'react-router-dom'
 import { ArtelBanner } from '../../components'
 import { LoginField, NoAccount, OrDivider, PasswordField, PublicOffer } from './components'
-import { loginSchema, type LoginFormValues } from './schemas/auth'
+import { loginSchema, type LoginFormValues } from './schema'
 
 export function LoginPage() {
   const { t } = useTranslation(['auth', 'common'])
@@ -60,16 +60,7 @@ export function LoginPage() {
             <CardTitle className="text-xl">{t('login.title')}</CardTitle>
             <CardDescription>{t('login.subtitle')}</CardDescription>
           </CardHeader>
-          <CardContent className="space-y-6">
-            <div className="grid gap-4">
-              <Button onClick={handleTelegramLogin} variant="outline">
-                <Send />
-                {t('login.telegramButton')}
-              </Button>
-
-              <OrDivider />
-            </div>
-
+          <CardContent className="grid gap-6">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-4">
                 <LoginField />
@@ -80,6 +71,12 @@ export function LoginPage() {
                 </Button>
               </form>
             </Form>
+            <OrDivider />
+
+            <Button onClick={handleTelegramLogin} variant="outline">
+              <Send />
+              {t('login.telegramButton')}
+            </Button>
 
             <NoAccount />
           </CardContent>

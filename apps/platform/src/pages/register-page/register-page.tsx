@@ -24,7 +24,7 @@ import {
   RegisterOrgField,
   TermsAgreeField,
 } from './components'
-import { registerSchema, type RegisterFormValues } from './schemas/register'
+import { registerSchema, type RegisterFormValues } from './schema'
 
 export function RegisterPage() {
   const { t } = useTranslation('auth')
@@ -51,7 +51,7 @@ export function RegisterPage() {
   }
 
   return (
-    <div className="bg-foreground/5 min-h-screen px-4 py-8">
+    <div className="bg-foreground/5 grid min-h-screen place-items-center px-4 pt-4 pb-8 md:pt-8 md:pb-24">
       <div className="mx-auto max-w-2xl">
         <div className="mb-4 flex items-center justify-between">
           <Button variant="link" asChild>
@@ -75,19 +75,19 @@ export function RegisterPage() {
           <CardContent>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <div className="grid items-start gap-4 md:grid-cols-2">
+                <div className="grid items-start gap-4 md:grid-cols-3">
                   <AccountNameField />
+                  <EmailField />
                   <GenderField />
                 </div>
 
-                <div className="grid gap-4 md:grid-cols-2">
+                <div className="grid gap-4 md:grid-cols-3">
                   <LastNameField />
                   <FirstNameField />
+                  <MiddleNameField />
                 </div>
 
-                <MiddleNameField />
                 <BirthdayField />
-                <EmailField />
 
                 <div className="grid gap-4">
                   <TermsAgreeField />

@@ -70,12 +70,12 @@ export const registerSchema = z
     }
 
     const now = new Date()
-    const minAllowedDate = new Date(now.getFullYear() - 14, now.getMonth(), now.getDate())
+    const minAllowedDate = new Date(now.getFullYear() - 16, now.getMonth(), now.getDate())
 
     if (date > minAllowedDate) {
       ctx.addIssue({
         code: 'custom',
-        message: 'Возраст должен быть 14+',
+        message: 'Возраст должен быть 16+',
         path: ['birthYear'],
       })
     }
