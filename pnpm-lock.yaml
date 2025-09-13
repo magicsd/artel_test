@@ -361,9 +361,6 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@4.1.13)
-      zod:
-        specifier: ^4.1.7
-        version: 4.1.7
     devDependencies:
       autoprefixer:
         specifier: ^10.4.21
