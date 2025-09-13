@@ -30,11 +30,7 @@ pnpm add @tanstack/react-query @tanstack/react-query-devtools
 import { QueryProvider } from '@artelonline/shared'
 
 function App() {
-  return (
-    <QueryProvider>
-      {/* Ваше приложение */}
-    </QueryProvider>
-  )
+  return <QueryProvider>{/* Ваше приложение */}</QueryProvider>
 }
 ```
 
@@ -56,17 +52,21 @@ import { useList, useDetail, useCreate, useUpdate, useDelete } from '@artelonlin
 
 function UsersList() {
   // Получение списка пользователей
-  const { data: users, isLoading, error } = useList<User>('/users', {
+  const {
+    data: users,
+    isLoading,
+    error,
+  } = useList<User>('/users', {
     page: 1,
     limit: 10,
-    search: 'john'
+    search: 'john',
   })
 
   // Создание пользователя
   const createUser = useCreate<User>('/users', {
     onSuccess: () => {
       console.log('User created successfully!')
-    }
+    },
   })
 
   // Обновление пользователя
@@ -80,13 +80,11 @@ function UsersList() {
 
   return (
     <div>
-      {users?.data.data.map(user => (
+      {users?.data.data.map((user) => (
         <div key={user.id}>{user.name}</div>
       ))}
-      
-      <button 
-        onClick={() => createUser.mutate({ name: 'John', email: 'john@example.com' })}
-      >
+
+      <button onClick={() => createUser.mutate({ name: 'John', email: 'john@example.com' })}>
         Create User
       </button>
     </div>
@@ -119,28 +117,22 @@ function UserProfile({ userId }: { userId: string }) {
 import { useInfiniteList } from '@artelonline/shared'
 
 function InfiniteUsersList() {
-  const {
-    data,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage,
-  } = useInfiniteList<User>('/users', { limit: 20 })
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = useInfiniteList<User>('/users', {
+    limit: 20,
+  })
 
   return (
     <div>
       {data?.pages.map((page, i) => (
         <div key={i}>
-          {page.data.data.map(user => (
+          {page.data.data.map((user) => (
             <div key={user.id}>{user.name}</div>
           ))}
         </div>
       ))}
-      
+
       {hasNextPage && (
-        <button 
-          onClick={() => fetchNextPage()}
-          disabled={isFetchingNextPage}
-        >
+        <button onClick={() => fetchNextPage()} disabled={isFetchingNextPage}>
           {isFetchingNextPage ? 'Loading...' : 'Load More'}
         </button>
       )}
@@ -162,7 +154,7 @@ function AuthComponent() {
   const handleLogin = () => {
     login.mutate({
       email: 'user@example.com',
-      password: 'password'
+      password: 'password',
     })
   }
 
@@ -196,11 +188,11 @@ function FileUpload() {
     if (file) {
       const formData = new FormData()
       formData.append('file', file)
-      
+
       upload.mutate(formData, {
         onSuccess: (data) => {
           console.log('File uploaded:', data.data)
-        }
+        },
       })
     }
   }
@@ -227,7 +219,7 @@ function OptimisticUserUpdate({ user }: { user: User }) {
     // Оптимистично обновляем UI
     const previousData = optimistic.updateDetail(user.id, (old) => ({
       ...old,
-      name: newName
+      name: newName,
     }))
 
     updateUser.mutate(
@@ -238,16 +230,12 @@ function OptimisticUserUpdate({ user }: { user: User }) {
           if (previousData) {
             optimistic.updateDetail(user.id, () => previousData.data)
           }
-        }
-      }
+        },
+      },
     )
   }
 
-  return (
-    <button onClick={() => handleUpdate('New Name')}>
-      Update Name
-    </button>
-  )
+  return <button onClick={() => handleUpdate('New Name')}>Update Name</button>
 }
 ```
 
@@ -262,8 +250,8 @@ import { queryClient } from '@artelonline/shared'
 queryClient.setDefaultOptions({
   queries: {
     staleTime: 10 * 60 * 1000, // 10 минут
-    gcTime: 15 * 60 * 1000,    // 15 минут
-  }
+    gcTime: 15 * 60 * 1000, // 15 минут
+  },
 })
 ```
 
@@ -287,10 +275,10 @@ apiClient.setAuthToken('your-jwt-token')
 import { queryKeys } from '@artelonline/shared'
 
 // Примеры query keys
-queryKeys.users.all          // ['api', 'users']
-queryKeys.users.list({})     // ['api', 'users', 'list', { filters: {} }]
-queryKeys.users.detail(1)    // ['api', 'users', 'detail', 1]
-queryKeys.auth.user()        // ['api', 'auth', 'user']
+queryKeys.users.all // ['api', 'users']
+queryKeys.users.list({}) // ['api', 'users', 'list', { filters: {} }]
+queryKeys.users.detail(1) // ['api', 'users', 'detail', 1]
+queryKeys.auth.user() // ['api', 'auth', 'user']
 ```
 
 ## 🛠️ Утилиты
@@ -347,9 +335,9 @@ interface User {
 }
 
 // Типизированные хуки
-const { data } = useList<User>('/users')        // data: ApiResponse<PaginatedResponse<User>>
-const { data } = useDetail<User>('/users', 1)  // data: ApiResponse<User>
-const create = useCreate<User>('/users')       // create.mutate принимает CreateInput<User>
+const { data } = useList<User>('/users') // data: ApiResponse<PaginatedResponse<User>>
+const { data } = useDetail<User>('/users', 1) // data: ApiResponse<User>
+const create = useCreate<User>('/users') // create.mutate принимает CreateInput<User>
 ```
 
 ## 🎨 Интеграция с UI
@@ -367,10 +355,7 @@ function UserCard({ user }: { user: User }) {
     <Card>
       <h3>{user.name}</h3>
       <p>{user.email}</p>
-      <Button 
-        onClick={() => deleteUser.mutate(user.id)}
-        loading={deleteUser.isPending}
-      >
+      <Button onClick={() => deleteUser.mutate(user.id)} loading={deleteUser.isPending}>
         Delete
       </Button>
     </Card>
@@ -400,4 +385,3 @@ React Query DevTools автоматически включены в development 
 - [TanStack Query Documentation](https://tanstack.com/query/latest)
 - [React Query Best Practices](https://react-query.tanstack.com/guides/best-practices)
 - [TypeScript with React Query](https://react-query.tanstack.com/guides/typescript)
-

@@ -4,6 +4,9 @@ export default [
   ...baseConfig,
   {
     files: ['**/*.json'],
+    plugins: {
+      '@nx': await import('@nx/eslint-plugin'),
+    },
     rules: {
       '@nx/dependency-checks': [
         'error',
