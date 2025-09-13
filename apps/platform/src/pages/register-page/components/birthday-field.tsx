@@ -45,22 +45,22 @@ export function BirthdayField() {
         <FormField
           control={control}
           name="birthDay"
-          render={({ field }) => (
+          render={({ field, fieldState }) => (
             <FormItem>
-              <FormControl>
-                <Select value={field.value} onValueChange={field.onChange}>
-                  <SelectTrigger>
+              <Select value={field.value} onValueChange={field.onChange}>
+                <FormControl>
+                  <SelectTrigger className={fieldState.error ? 'border-red-500' : undefined}>
                     <SelectValue placeholder={t('register.dayPlaceholder')} />
                   </SelectTrigger>
-                  <SelectContent>
-                    {days.map((day) => (
-                      <SelectItem key={day} value={day}>
-                        {day}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </FormControl>
+                </FormControl>
+                <SelectContent>
+                  {days.map((day) => (
+                    <SelectItem key={day} value={day}>
+                      {day}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
               <FormMessage />
             </FormItem>
           )}
@@ -69,22 +69,22 @@ export function BirthdayField() {
         <FormField
           control={control}
           name="birthMonth"
-          render={({ field }) => (
+          render={({ field, fieldState }) => (
             <FormItem>
-              <FormControl>
-                <Select value={field.value} onValueChange={field.onChange}>
-                  <SelectTrigger>
+              <Select value={field.value} onValueChange={field.onChange}>
+                <FormControl>
+                  <SelectTrigger className={fieldState.error ? 'border-red-500' : undefined}>
                     <SelectValue placeholder={t('register.monthPlaceholder')} />
                   </SelectTrigger>
-                  <SelectContent>
-                    {months.map((month, index) => (
-                      <SelectItem key={month} value={String(index + 1)}>
-                        {month}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </FormControl>
+                </FormControl>
+                <SelectContent>
+                  {months.map((month, index) => (
+                    <SelectItem key={month} value={String(index + 1)}>
+                      {month}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
               <FormMessage />
             </FormItem>
           )}
@@ -93,22 +93,22 @@ export function BirthdayField() {
         <FormField
           control={control}
           name="birthYear"
-          render={({ field }) => (
+          render={({ field, fieldState }) => (
             <FormItem>
-              <FormControl>
-                <Select value={field.value} onValueChange={field.onChange}>
-                  <SelectTrigger>
+              <Select value={field.value} onValueChange={field.onChange}>
+                <FormControl>
+                  <SelectTrigger className={fieldState.error ? 'border-red-500' : undefined}>
                     <SelectValue placeholder={t('register.yearPlaceholder')} />
                   </SelectTrigger>
-                  <SelectContent>
-                    {years.map((year) => (
-                      <SelectItem key={year} value={year}>
-                        {year}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </FormControl>
+                </FormControl>
+                <SelectContent>
+                  {years.map((year) => (
+                    <SelectItem key={year} value={year}>
+                      {year}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
               <FormMessage />
             </FormItem>
           )}

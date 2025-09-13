@@ -1,3 +1,6 @@
+import { differenceInYears } from 'date-fns/differenceInYears'
+import { isExists } from 'date-fns/isExists'
+import { startOfToday } from 'date-fns/startOfToday'
 import { z } from 'zod'
 
 export type Gender = 'male' | 'female'
@@ -56,23 +59,16 @@ export const registerSchema = z
     }
 
     const month = monthNum - 1
-    const date = new Date(yearNum, month, dayNum)
-    const isValidDate =
-      date.getFullYear() === yearNum && date.getMonth() === month && date.getDate() === dayNum
-
-    if (!isValidDate) {
-      ctx.addIssue({
-        code: 'custom',
-        message: 'Некорректная дата',
-        path: ['birthDay'],
-      })
+    if (!isExists(yearNum, month, dayNum)) {
+      ctx.addIssue({ code: 'custom', message: 'Некорректная дата', path: ['birthDay'] })
       return
     }
+    const birthDate = new Date(yearNum, month, dayNum)
 
-    const now = new Date()
-    const minAllowedDate = new Date(now.getFullYear() - 16, now.getMonth(), now.getDate())
+    const today = startOfToday()
+    const age = differenceInYears(today, birthDate)
 
-    if (date > minAllowedDate) {
+    if (age < 16) {
       ctx.addIssue({
         code: 'custom',
         message: 'Возраст должен быть 16+',
