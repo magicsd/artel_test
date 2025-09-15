@@ -1,28 +1,23 @@
+import { RouterProvider } from '@tanstack/react-router'
+import { QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { QueryProvider, ThemeProvider } from '@artelonline/shared'
 import { Toaster } from '@artelonline/ui'
-import { Routes, Route } from 'react-router-dom'
-import { Layout } from '../components'
-import { HomePage, AboutPage, DashboardPage, LoginPage, RegisterPage } from '../pages'
+import { router, queryClient } from '../router'
 
 export function App() {
   return (
-    <QueryProvider>
-      <ThemeProvider defaultTheme="system" storageKey="artel-ui-theme">
-        <Routes>
-          {/* Auth routes without layout */}
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-
-          {/* Main routes with layout */}
-          <Route path="/" element={<Layout />}>
-            <Route index element={<HomePage />} />
-            <Route path="about" element={<AboutPage />} />
-            <Route path="dashboard" element={<DashboardPage />} />
-          </Route>
-        </Routes>
-        <Toaster richColors position="bottom-right" />
-      </ThemeProvider>
-    </QueryProvider>
+    <QueryClientProvider client={queryClient}>
+      <QueryProvider>
+        <ThemeProvider defaultTheme="system" storageKey="artel-ui-theme">
+          <RouterProvider router={router} />
+          <Toaster richColors position="bottom-right" />
+          {process.env.NODE_ENV === 'development' && (
+            <ReactQueryDevtools initialIsOpen={false} />
+          )}
+        </ThemeProvider>
+      </QueryProvider>
+    </QueryClientProvider>
   )
 }
 

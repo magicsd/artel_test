@@ -1,0 +1,42 @@
+{
+  "name": "@artelonline/routing",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tanstack/react-router": "workspace:*",
+    "@tanstack/router-devtools": "workspace:*",
+    "@tanstack/react-query": "workspace:*",
+    "@artelonline/shared": "workspace:*",
+    "react": "workspace:*",
+    "react-dom": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/react": "workspace:*",
+    "@types/react-dom": "workspace:*",
+    "typescript": "workspace:*",
+    "vite": "workspace:*",
+    "vite-plugin-dts": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  }
+}
+

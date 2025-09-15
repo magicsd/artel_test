@@ -2,6 +2,7 @@
 import path from 'path'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
+import { TanStackRouterVite } from '@tanstack/router-vite-plugin'
 
 export default defineConfig(async () => {
   const { default: tailwindcss } = await import('@tailwindcss/vite')
@@ -17,12 +18,22 @@ export default defineConfig(async () => {
       port: 4200,
       host: 'localhost',
     },
-    plugins: [react(), tailwindcss()],
+    plugins: [
+      react(),
+      tailwindcss(),
+      TanStackRouterVite({
+        routesDirectory: './src/routes',
+        generatedRouteTree: './src/routeTree.gen.ts',
+        routeFileIgnorePrefix: '-',
+        quoteStyle: 'single',
+      }),
+    ],
     resolve: {
       alias: {
         '@artelonline/ui': path.resolve(__dirname, '../../packages/ui/src'),
         '@artelonline/shared': path.resolve(__dirname, '../../packages/shared/src'),
         '@artelonline/config': path.resolve(__dirname, '../../packages/config/src'),
+        '@artelonline/routing': path.resolve(__dirname, '../../packages/routing/src'),
       },
     },
     ssr: {
@@ -38,6 +49,17 @@ export default defineConfig(async () => {
       reportCompressedSize: true,
       commonjsOptions: {
         transformMixedEsModules: true,
+      },
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: ['react', 'react-dom'],
+            router: ['@tanstack/react-router'],
+            query: ['@tanstack/react-query'],
+            ui: ['@artelonline/ui'],
+            utils: ['date-fns', 'clsx', 'tailwind-merge'],
+          },
+        },
       },
     },
     test: {
