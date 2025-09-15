@@ -35,6 +35,9 @@
   "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"],
   "references": [
     {
+      "path": "../../packages/routing"
+    },
+    {
       "path": "../../packages/ui/tsconfig.lib.json"
     },
     {

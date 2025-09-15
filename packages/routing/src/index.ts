@@ -12,3 +12,6 @@ export * from './types/router'
 
 // Utils
 export * from './utils/router-utils'
+
+// Code-based router
+export * from './router/code-based-router'
